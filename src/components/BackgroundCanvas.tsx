@@ -2,10 +2,11 @@
 import { PointMaterial, Points, Trail } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { inSphere as randomInSphere } from "maath/random";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { Color, type Mesh } from "three";
-// Generate the sphere outside of the Stars component
+
 const sphere = randomInSphere(new Float32Array(35000), { radius: 1 });
+
 const Stars = (props: any) => {
   const ref = useRef<Mesh>();
 

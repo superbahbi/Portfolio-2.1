@@ -1,10 +1,10 @@
+import logo from "@/assets/rk-logo.png";
 import { BackgroundCanvas } from "@/components/BackgroundCanvas";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import Image from "next/image";
-import logo from "@/assets/rk-logo.png";
 import Link from "next/link";
+import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

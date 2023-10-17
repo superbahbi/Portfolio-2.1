@@ -1,7 +1,6 @@
 import { TextEncrypted } from "@/components/TextEncrypted";
 import { Button } from "@/components/ui/button";
 import { AtSign, File, Github, Terminal } from "lucide-react";
-import Image from "next/image";
 
 export default function Home() {
   return (
