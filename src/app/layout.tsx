@@ -22,11 +22,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="relative h-screen w-screen bg-slate-900">
-          <div className="w-screen h-screen bg-radial-gradient brightness-50 fixed top-0 left-0"></div>
-          <BackgroundCanvas className="fixed top-0 left-0" />
-          <div className="absolute top-0 left-0">
-            <div className="relative w-screen h-screen flex items-center justify-center">
-              <div className="grid grid-cols-12 text-white max-w-4xl gap-4 h-96">
+          <div className="bg-radial-gradient fixed left-0 top-0 h-screen w-screen brightness-50"></div>
+          <BackgroundCanvas className="fixed left-0 top-0" />
+          <div className="absolute left-0 top-0">
+            <div className="relative flex h-screen w-screen items-center justify-center">
+              <div className="grid h-96 max-w-4xl grid-cols-12 gap-4 text-white">
                 <div className="col-span-3">
                   <Image
                     src={logo}
@@ -40,14 +40,14 @@ export default function RootLayout({
                     <div className="flex flex-col gap-12">
                       <Link
                         href="/"
-                        className="text-slate-400 hover:text-slate-200 gap-2"
+                        className="gap-2 text-slate-400 hover:text-slate-200"
                       >
-                        <div className="relative overflow-hidden group">
+                        <div className="group relative overflow-hidden">
                           <span className="invisible">0.1 #intro</span>
-                          <span className="absolute top-0 left-0 group-hover:-translate-y-full transition-transform ease-in-out duration-500 hover:duration-300">
+                          <span className="absolute left-0 top-0 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full">
                             0.1 #intro
                           </span>
-                          <span className="absolute top-0 left-0 translate-y-full group-hover:translate-y-0 transition-transform ease-in-out duration-500 hover:duration-300">
+                          <span className="absolute left-0 top-0 translate-y-full transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0">
                             0.1 #intro
                           </span>
                         </div>
@@ -57,12 +57,12 @@ export default function RootLayout({
                         href="/projects"
                         className="text-slate-400 hover:text-slate-200"
                       >
-                        <div className="relative overflow-hidden group">
+                        <div className="group relative overflow-hidden">
                           <span className="invisible">0.2 #projects</span>
-                          <span className="absolute top-0 left-0 group-hover:-translate-y-full transition-transform ease-in-out duration-500 hover:duration-300">
+                          <span className="absolute left-0 top-0 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full">
                             0.2 #projects
                           </span>
-                          <span className="absolute top-0 left-0 translate-y-full group-hover:translate-y-0 transition-transform ease-in-out duration-500 hover:duration-300">
+                          <span className="absolute left-0 top-0 translate-y-full transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0">
                             0.2 #projects
                           </span>
                         </div>
@@ -72,12 +72,12 @@ export default function RootLayout({
                         href="/technology"
                         className="text-slate-400 hover:text-slate-200"
                       >
-                        <div className="relative overflow-hidden group">
+                        <div className="group relative overflow-hidden">
                           <span className="invisible">0.3 #technology</span>
-                          <span className="absolute top-0 left-0 group-hover:-translate-y-full transition-transform ease-in-out duration-500 hover:duration-300">
+                          <span className="absolute left-0 top-0 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full">
                             0.3 #technology
                           </span>
-                          <span className="absolute top-0 left-0 translate-y-full group-hover:translate-y-0 transition-transform ease-in-out duration-500 hover:duration-300">
+                          <span className="absolute left-0 top-0 translate-y-full transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0">
                             0.3 #technology
                           </span>
                         </div>
@@ -86,12 +86,12 @@ export default function RootLayout({
                         href="/contact"
                         className="text-slate-400 hover:text-slate-200"
                       >
-                        <div className="relative overflow-hidden group">
+                        <div className="group relative overflow-hidden">
                           <span className="invisible">0.4 #contact</span>
-                          <span className="absolute top-0 left-0 group-hover:-translate-y-full transition-transform ease-in-out duration-500 hover:duration-300">
+                          <span className="absolute left-0 top-0 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full">
                             0.4 #contact
                           </span>
-                          <span className="absolute top-0 left-0 translate-y-full group-hover:translate-y-0 transition-transform ease-in-out duration-500 hover:duration-300">
+                          <span className="absolute left-0 top-0 translate-y-full transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0">
                             0.4 #contact
                           </span>
                         </div>
@@ -101,12 +101,12 @@ export default function RootLayout({
                         href="/blog"
                         className="text-slate-400 hover:text-slate-200"
                       >
-                        <div className="relative overflow-hidden group">
+                        <div className="group relative overflow-hidden">
                           <span className="invisible">0.5 #blog</span>
-                          <span className="absolute top-0 left-0 group-hover:-translate-y-full transition-transform ease-in-out duration-500 hover:duration-300">
+                          <span className="absolute left-0 top-0 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full">
                             0.5 #blog
                           </span>
-                          <span className="absolute top-0 left-0 translate-y-full group-hover:translate-y-0 transition-transform ease-in-out duration-500 hover:duration-300">
+                          <span className="absolute left-0 top-0 translate-y-full transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0">
                             0.5 #blog
                           </span>
                         </div>
