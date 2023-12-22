@@ -75,7 +75,7 @@ export function ContactForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col space-y-8 text-left text-white"
+        className="flex flex-col space-y-4 text-left text-white"
       >
         <FormField
           control={form.control}
@@ -96,7 +96,7 @@ export function ContactForm() {
           name="lastName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>last Name</FormLabel>
+              <FormLabel>Last Name</FormLabel>
               <FormControl>
                 <Input placeholder="Last Name" {...field} />
               </FormControl>
