@@ -149,7 +149,7 @@ export default function Page() {
         <Terminal className="h-8 w-8" />
         <TextEncrypted interval={100} text="Projects" />
       </h1>
-      <ScrollArea className="h-[250px] w-full pr-4">
+      <ScrollArea className="h-full sm:h-[250px] w-full pr-4">
         <div className="space-y-4">
           {projects.map((project) => {
             return <CardSpotlight key={project.title} project={project} />;
