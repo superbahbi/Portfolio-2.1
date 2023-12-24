@@ -12,6 +12,20 @@ export const metadata: Metadata = {
     "Robert Kugler is a software engineer based in San Luis Obispo, CA.",
 };
 
+const NavigationLink = ({ href, label }: { href: string; label: string }) => (
+  <Link href={href} className="text-slate-400 hover:text-slate-200">
+    <div className="group relative overflow-hidden">
+      <span className="invisible">{label}</span>
+      <span className="absolute left-0 top-0 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full">
+        {label}
+      </span>
+      <span className="absolute left-0 top-0 translate-y-full transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0">
+        {label}
+      </span>
+    </div>
+  </Link>
+);
+
 export default function RootLayout({
   children,
 }: {
@@ -24,9 +38,9 @@ export default function RootLayout({
           <div className="bg-radial-gradient fixed left-0 top-0 h-screen w-screen brightness-50"></div>
           <BackgroundCanvas className="fixed left-0 top-0" />
           <div className="absolute left-0 top-0">
-            <div className="relative flex h-screen w-screen items-center justify-center">
-              <div className="flex px-6 lg:mx-auto lg:flex-row lg:px-8">
-                <div className="grid h-72 max-w-xl grid-cols-1 gap-4 space-y-8 lg:w-[900px] lg:max-w-none lg:grid-cols-8 lg:space-y-0">
+            <div className="relative flex  sm:h-screen w-screen items-center justify-center">
+              <div className="flex px-6 py-4 mx-auto lg:flex-row lg:px-8">
+                <div className="grid sm:h-72 max-w-xl grid-cols-1 gap-4 space-y-8 lg:w-[900px] lg:max-w-none lg:grid-cols-8 lg:space-y-0">
                   <div className="col-span-1 flex max-w-xs flex-col lg:col-span-2">
                     <Image
                       src={logo}
@@ -37,81 +51,11 @@ export default function RootLayout({
                   </div>
 
                   <header className="col-span-1 flex flex-row gap-2 sm:gap-16 lg:col-span-2 lg:flex-col">
-                    <Link
-                      href="/"
-                      className="gap-2 text-slate-400 hover:text-slate-200"
-                    >
-                      <div className="group relative overflow-hidden">
-                        <span className="invisible">0.1 #intro</span>
-                        <span className="absolute left-0 top-0 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full">
-                          0.1 #intro
-                        </span>
-                        <span className="absolute left-0 top-0 translate-y-full transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0">
-                          0.1 #intro
-                        </span>
-                      </div>
-                    </Link>
-
-                    <Link
-                      href="/projects"
-                      className="text-slate-400 hover:text-slate-200"
-                    >
-                      <div className="group relative overflow-hidden">
-                        <span className="invisible">0.2 #projects</span>
-                        <span className="absolute left-0 top-0 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full">
-                          0.2 #projects
-                        </span>
-                        <span className="absolute left-0 top-0 translate-y-full transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0">
-                          0.2 #projects
-                        </span>
-                      </div>
-                    </Link>
-
-                    <Link
-                      href="/technology"
-                      className="text-slate-400 hover:text-slate-200"
-                    >
-                      <div className="group relative overflow-hidden">
-                        <span className="invisible">0.3 #tech</span>
-                        <span className="absolute left-0 top-0 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full">
-                          0.3 #tech
-                        </span>
-                        <span className="absolute left-0 top-0 translate-y-full transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0">
-                          0.3 #tech
-                        </span>
-                      </div>
-                    </Link>
-                    <Link
-                      href="/contact"
-                      className="text-slate-400 hover:text-slate-200"
-                    >
-                      <div className="group relative overflow-hidden">
-                        <span className="invisible">0.4 #contact</span>
-                        <span className="absolute left-0 top-0 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full">
-                          0.4 #contact
-                        </span>
-                        <span className="absolute left-0 top-0 translate-y-full transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0">
-                          0.4 #contact
-                        </span>
-                      </div>
-                    </Link>
-
-                    {/* <Link
-                          href="/blog"
-                          className="text-slate-400 hover:text-slate-200"
-                        >
-                          <div className="group relative overflow-hidden">
-                            <span className="invisible">0.5 #blog</span>
-                            <span className="absolute left-0 top-0 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full">
-                              0.5 #blog
-                            </span>
-                            <span className="absolute left-0 top-0 translate-y-full transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0">
-                              0.5 #blog
-                            </span>
-                          </div>
-                        </Link> */}
+                    <NavigationLink href="/" label="0.1 #intro" />
+                    <NavigationLink href="/projects" label="0.2 #projects" />
+                    <NavigationLink href="/technology" label="0.3 #tech" />
+                    <NavigationLink href="/contact" label="0.4 #contact" />
                   </header>
-
                   {children}
                 </div>
               </div>
