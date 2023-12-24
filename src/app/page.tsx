@@ -2,10 +2,45 @@ import { TextEncrypted } from "@/components/TextEncrypted";
 import { Button } from "@/components/ui/button";
 import { AtSign, File, Github, Terminal } from "lucide-react";
 
+const ButtonLink = ({ href, icon: Icon, label }:{
+  href: string,
+  icon: any,
+  label: string
+}) => (
+  <a
+    href={href}
+    target="_blank"
+    className="w-full"
+  >
+    <Button className="relative flex gap-1 rounded-lg bg-slate-200 text-black hover:bg-white w-full">
+      <Icon className="h-4 w-4" />
+      <span>{label}</span>
+    </Button>
+  </a>
+);
+
+const buttonData = [
+  {
+    href: "https://user.fm/files/v2-22603ccf3ccacce1889f78df895d2b84/Robert_Kugler_Resume.pdf",
+    icon: File,
+    label: "Resume",
+  },
+  {
+    href: "mailto:superbahbi@gmail.com",
+    icon: AtSign,
+    label: "Email",
+  },
+  {
+    href: "https://www.github.com/superbahbi",
+    icon: Github,
+    label: "Github",
+  },
+];
+
 export default function Home() {
   return (
     <main className="col-span-1 lg:col-span-4">
-      <div className="flex h-full flex-col space-y-4">
+      <div className="flex   h-full flex-col space-y-4">
         <h1 className="font-mono text-2xl font-semibold tracking-wider text-slate-100">
           <div className="flex flex-row gap-1">
             <Terminal className="h-8 w-8" />
@@ -29,39 +64,10 @@ export default function Home() {
           </p>
         </div>
         <div>
-          <div className="flex flex-row gap-4">
-            <a
-              href="https://user.fm/files/v2-22603ccf3ccacce1889f78df895d2b84/Robert_Kugler_Resume.pdf"
-              target="_blank"
-              className="group relative transition-transform duration-200 ease-in-out hover:scale-110"
-            >
-              <div className="animate-tilt absolute -inset-0.5 rounded-lg bg-gradient-to-r from-pink-600 to-purple-600 opacity-75 blur brightness-50 transition duration-1000 group-hover:opacity-100 group-hover:duration-200"></div>
-              <Button className="relative flex gap-1 rounded-lg bg-slate-200 text-black hover:bg-white">
-                <File className="h-4 w-4" />
-                <span>Resume</span>
-              </Button>
-            </a>
-            <a
-              href="mailto:superbahbi@gmail.com"
-              className="group relative transition-transform duration-200 ease-in-out hover:scale-110"
-            >
-              <div className="animate-tilt absolute -inset-0.5 rounded-lg bg-gradient-to-r from-pink-600 to-purple-600 opacity-75 blur brightness-50 transition duration-1000 group-hover:opacity-100 group-hover:duration-200"></div>
-              <Button className="relative flex gap-1 rounded-lg bg-slate-200 text-black hover:bg-white">
-                <AtSign className="h-4 w-4" />
-                <span>Email</span>
-              </Button>
-            </a>
-            <a
-              href="https://www.github.com/superbahbi"
-              target="_blank"
-              className="relative transition-transform duration-200 ease-in-out hover:scale-110"
-            >
-              <div className="opacity50 animate-tilt absolute -inset-0.5 rounded-lg bg-gradient-to-r from-pink-600 to-purple-600 blur brightness-50 transition duration-1000 group-hover:opacity-0 group-hover:duration-200"></div>
-              <Button className="relative flex gap-1 rounded-lg bg-slate-200 text-black hover:bg-white">
-                <Github className="h-4 w-4" />
-                <span>Github</span>
-              </Button>
-            </a>
+          <div className="flex flex-col items-center justify-start sm:flex-row gap-4">
+            {buttonData.map((button) => (
+              <ButtonLink key={button.label} {...button} />
+            ))}
           </div>
         </div>
       </div>
