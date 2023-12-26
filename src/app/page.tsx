@@ -21,7 +21,7 @@ const ButtonLink = ({ href, icon: Icon, label }:{
 
 const buttonData = [
   {
-    href: "https://user.fm/files/v2-22603ccf3ccacce1889f78df895d2b84/Robert_Kugler_Resume.pdf",
+    href: "https://user.fm/files/v2-702551cc7ffb9b994e13aae516d1bef2/robert-kugler-resume.pdf",
     icon: File,
     label: "Resume",
   },
