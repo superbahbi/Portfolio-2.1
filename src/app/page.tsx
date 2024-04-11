@@ -2,17 +2,17 @@ import { TextEncrypted } from "@/components/TextEncrypted";
 import { Button } from "@/components/ui/button";
 import { AtSign, File, Github, Terminal } from "lucide-react";
 
-const ButtonLink = ({ href, icon: Icon, label }:{
-  href: string,
-  icon: any,
-  label: string
+const ButtonLink = ({
+  href,
+  icon: Icon,
+  label,
+}: {
+  href: string;
+  icon: any;
+  label: string;
 }) => (
-  <a
-    href={href}
-    target="_blank"
-    className="w-full"
-  >
-    <Button className="relative flex gap-1 rounded-lg bg-slate-200 text-black hover:bg-white w-full">
+  <a href={href} target="_blank" className="w-full">
+    <Button className="relative flex w-full gap-1 rounded-lg bg-slate-200 text-black hover:bg-white">
       <Icon className="h-4 w-4" />
       <span>{label}</span>
     </Button>
@@ -21,7 +21,7 @@ const ButtonLink = ({ href, icon: Icon, label }:{
 
 const buttonData = [
   {
-    href: "https://user.fm/files/v2-702551cc7ffb9b994e13aae516d1bef2/robert-kugler-resume.pdf",
+    href: "https://user.fm/files/v2-8289d6948db581fb14516025deaaaf69/Robert%20Kugler%20Resume.pdf",
     icon: File,
     label: "Resume",
   },
@@ -64,7 +64,7 @@ export default function Home() {
           </p>
         </div>
         <div>
-          <div className="flex flex-col items-center justify-start sm:flex-row gap-4">
+          <div className="flex flex-col items-center justify-start gap-4 sm:flex-row">
             {buttonData.map((button) => (
               <ButtonLink key={button.label} {...button} />
             ))}
