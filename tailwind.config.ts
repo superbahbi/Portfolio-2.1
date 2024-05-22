@@ -66,18 +66,18 @@ module.exports = {
           to: { height: 0 },
         },
         meteor: {
-          "0%": { transform: "rotate(215deg) translateX(0)", opacity: 1 },
+          "0%": { transform: "rotate(315deg) translateX(0)", opacity: 1 },
           "70%": { opacity: 1 },
           "100%": {
-            transform: "rotate(215deg) translateX(-500px)",
-            opacity: 0,
+            transform: "rotate(315deg) translateX(-2000px)",
+            opacity: 0
           },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        meteor: "meteor 30s linear infinite",
+        meteor: "meteor 5s linear infinite",
    
       },
     },
