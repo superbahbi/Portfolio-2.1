@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import "./globals.css";
+import Meteors from "@/components/Meteors";
 
 export const metadata: Metadata = {
   title: "Robert Kugler | Portofilio",
@@ -37,6 +38,7 @@ export default function RootLayout({
         <div className="relative h-screen w-screen ">
           <div className="bg-radial-gradient fixed left-0 top-0 h-screen w-screen brightness-50"></div>
           <BackgroundCanvas className="fixed left-0 top-0" />
+          <Meteors number={20} />
           <div className="absolute left-0 top-0">
             <div className="relative flex  sm:h-screen w-screen items-center justify-center">
               <div className="flex px-6 py-4 mx-auto lg:flex-row lg:px-8">
