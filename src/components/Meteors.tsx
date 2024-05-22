@@ -14,7 +14,7 @@ export const Meteors = ({ number = 20 }: MeteorsProps) => {
   useEffect(() => {
     const styles = [...new Array(number)].map(() => ({
       top: -5,
-      left: Math.floor(Math.random() * (window.innerWidth + + 1000)) + "px",
+      left: Math.floor(Math.random() * 100) + "vw",
       animationDelay: Math.random() * 1 + 0.8 + "s",
       animationDuration: Math.floor(Math.random() * 8 + 2) + "s",
     }));
@@ -33,7 +33,7 @@ export const Meteors = ({ number = 20 }: MeteorsProps) => {
           style={style}
         >
           {/* Meteor Tail */}
-          <div className="pointer-events-none absolute top-1/2 -z-10 h-[1px] w-[50px] -translate-y-1/2 bg-gradient-to-r from-slate-700 to-transparent" />
+          <div className="pointer-events-none absolute top-1/2 -z-10 h-[1px] w-[30px] sm:w-[50px] -translate-y-1/2 bg-gradient-to-r from-slate-700 to-transparent" />
         </span>
       ))}
     </>
