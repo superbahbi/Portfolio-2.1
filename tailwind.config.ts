@@ -72,6 +72,7 @@ module.exports = {
             transform: "rotate(315deg) translateX(-2000px)",
             opacity: 0
           },
+          
         },
       },
       animation: {
