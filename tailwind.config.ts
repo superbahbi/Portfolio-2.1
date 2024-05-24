@@ -2,11 +2,11 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   theme: {
     container: {
       center: true,
@@ -66,22 +66,20 @@ module.exports = {
           to: { height: 0 },
         },
         meteor: {
-          "0%": { transform: "rotate(315deg) translateX(0)", opacity: 1 },
+          "0%": { transform: "rotate(290deg) translateX(0)", opacity: 1 },
           "70%": { opacity: 1 },
           "100%": {
-            transform: "rotate(315deg) translateX(-2000px)",
-            opacity: 0
+            transform: "rotate(290deg) translateX(-100vh)",
+            opacity: 0,
           },
-          
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         meteor: "meteor 5s linear infinite",
-   
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};

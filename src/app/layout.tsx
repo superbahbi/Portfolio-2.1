@@ -1,7 +1,7 @@
 import logo from "@/assets/rk-logo.png";
 import { BackgroundCanvas } from "@/components/BackgroundCanvas";
 import Meteors from "@/components/Meteors";
-import { GeistSans } from 'geist/font/sans';
+import { GeistSans } from "geist/font/sans";
 import Image from "next/image";
 import Link from "next/link";
 import "./globals.css";
@@ -40,9 +40,9 @@ export default function RootLayout({
           <BackgroundCanvas className="fixed left-0 top-0" />
           <Meteors number={20} />
           <div className="absolute left-0 top-0">
-            <div className="relative flex  sm:h-screen w-screen items-center justify-center">
-              <div className="flex px-6 py-4 mx-auto lg:flex-row lg:px-8">
-                <div className="grid sm:h-72 max-w-xl grid-cols-1 gap-4 space-y-8 lg:w-[900px] lg:max-w-none lg:grid-cols-8 lg:space-y-0">
+            <div className="relative flex  w-screen items-center justify-center sm:h-screen">
+              <div className="mx-auto flex px-6 py-4 lg:flex-row lg:px-8">
+                <div className="grid max-w-xl grid-cols-1 gap-4 space-y-8 sm:h-72 lg:w-[900px] lg:max-w-none lg:grid-cols-8 lg:space-y-0">
                   <div className="col-span-1 flex max-w-xs flex-col lg:col-span-2">
                     <Image
                       src={logo}
