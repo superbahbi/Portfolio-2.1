@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={GeistSans.className}>
       <body>
-        <div className="relative h-screen w-screen ">
+        <div className="relative h-screen w-screen">
           <div className="bg-radial-gradient fixed left-0 top-0 h-screen w-screen brightness-50"></div>
           <BackgroundCanvas className="fixed left-0 top-0" />
           <Meteors number={20} />
