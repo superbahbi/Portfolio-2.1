@@ -1,6 +1,6 @@
 import { TextEncrypted } from "@/components/TextEncrypted";
 import { Button } from "@/components/ui/button";
-import { AtSign, File, Github, Terminal } from "lucide-react";
+import { AtSign, Calendar, File, Github, Terminal } from "lucide-react";
 
 const ButtonLink = ({
   href,
@@ -14,14 +14,14 @@ const ButtonLink = ({
   <a href={href} target="_blank" className="w-full">
     <Button className="relative flex w-full gap-1 rounded-lg bg-slate-200 text-black hover:bg-white">
       <Icon className="h-4 w-4" />
-      <span>{label}</span>
+      <span className="text-sm">{label}</span>
     </Button>
   </a>
 );
 
 const buttonData = [
   {
-    href: "https://user.fm/files/v2-c7a35c4662d7b1de7c5f6fe844a83772/Robert%20Kugler%20Resume%202024.pdf",
+    href: "https://dub.sh/rkrs",
     icon: File,
     label: "Resume",
   },
@@ -31,16 +31,21 @@ const buttonData = [
     label: "Email",
   },
   {
-    href: "https://www.github.com/superbahbi",
+    href: "https://git.new/rkgit",
     icon: Github,
     label: "Github",
+  },
+  {
+    href: "https://dub.sh/rkcal",
+    icon: Calendar,
+    label: "Book a Call",
   },
 ];
 
 export default function Home() {
   return (
-    <main className="col-span-1 lg:col-span-4">
-      <div className="flex   h-full flex-col space-y-4">
+    <main className="col-span-1 lg:col-span-5">
+      <div className="flex h-full flex-col space-y-4">
         <h1 className="font-mono text-2xl font-semibold tracking-wider text-slate-100">
           <div className="flex flex-row gap-1">
             <Terminal className="h-8 w-8" />
@@ -64,7 +69,7 @@ export default function Home() {
           </p>
         </div>
         <div>
-          <div className="flex flex-col items-center justify-start gap-4 sm:flex-row">
+          <div className="flex flex-col items-center justify-start gap-2 sm:flex-row">
             {buttonData.map((button) => (
               <ButtonLink key={button.label} {...button} />
             ))}

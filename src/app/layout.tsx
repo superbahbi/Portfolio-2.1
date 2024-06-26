@@ -42,8 +42,8 @@ export default function RootLayout({
           <div className="absolute left-0 top-0">
             <div className="relative flex  w-screen items-center justify-center sm:h-screen">
               <div className="mx-auto flex px-6 py-4 lg:flex-row lg:px-8">
-                <div className="grid max-w-xl grid-cols-1 gap-4 space-y-8 sm:h-72 lg:w-[900px] lg:max-w-none lg:grid-cols-8 lg:space-y-0">
-                  <div className="col-span-1 flex max-w-xs flex-col lg:col-span-2">
+                <div className="grid max-w-xl grid-cols-1 gap-4 space-y-8 sm:h-72 lg:w-[870px] lg:max-w-none lg:grid-cols-8 lg:space-y-0">
+                  <div className="col-span-1 flex max-w-xs flex-col lg:col-span-1">
                     <Image
                       src={logo}
                       alt="Robert Kugler"
