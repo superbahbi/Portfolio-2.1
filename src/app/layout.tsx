@@ -1,11 +1,9 @@
-import logo from "@/assets/rk-logo.png";
-import { BackgroundCanvas } from "@/components/BackgroundCanvas";
+import { BackgroundCanvas } from "@/components/background-canvas";
 import Meteors from "@/components/Meteors";
 import { GeistSans } from "geist/font/sans";
-import Image from "next/image";
 import Link from "next/link";
-import "./globals.css";
 import { Metadata } from "next/types";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Robert Kugler | Portofilio",
