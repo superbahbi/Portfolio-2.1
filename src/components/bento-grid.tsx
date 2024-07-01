@@ -52,8 +52,18 @@ const BentoCard = ({
       >
         <Icon className="size-4 origin-left transform-gpu text-neutral-200 transition-all duration-300 ease-in-out group-hover:scale-75" />
       </Button>
-      {name && <TextEncrypted interval={100} text={name} />}
-      <p className=" text-sm text-neutral-400">{description}</p>
+      {name && (
+        <TextEncrypted interval={50} text={name} className="text-white" />
+      )}
+
+      {description && (
+        <TextEncrypted
+          interval={100}
+          text={description}
+          className=" text-sm text-neutral-400"
+        />
+      )}
+
       {cta && href && (
         <Button variant="outline" asChild size="sm">
           <a href={href}>

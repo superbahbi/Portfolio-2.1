@@ -1,14 +1,20 @@
 "use client";
+import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
 interface TextEncryptedProps {
   text: string;
   interval?: number;
+  className?: string;
 }
 
 const chars = "-_~`!@#$%^&*()+=[]{}|;:,.<>?";
 
-export const TextEncrypted = ({ text, interval = 50 }: TextEncryptedProps) => {
+export const TextEncrypted = ({
+  text,
+  interval = 50,
+  className,
+}: TextEncryptedProps) => {
   const [outputText, setOutputText] = useState("");
   const [isMounted, setIsMounted] = useState(false);
 
@@ -46,7 +52,7 @@ export const TextEncrypted = ({ text, interval = 50 }: TextEncryptedProps) => {
   }
 
   return (
-    <span className="text-white">
+    <span className={cn(className)}>
       {outputText}
       {remainder}
     </span>

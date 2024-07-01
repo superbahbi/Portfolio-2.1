@@ -289,6 +289,7 @@ const features = [
   {
     Icon: FileTextIcon,
     name: "About Me",
+    description: "Learn more about me.",
     className: "col-span-3 md:col-span-2",
     background: (
       <div className="flex flex-col gap-2 px-4 py-4 sm:px-6">
