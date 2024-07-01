@@ -39,15 +39,7 @@ export default function RootLayout({
           <Meteors number={20} />
           <div className="absolute left-0 top-0">
             <div className="relative flex w-screen flex-col items-center">
-              {/* <Image src={logo} alt="Robert Kugler" height="64" width="64" /> */}
               <div className="mx-auto flex max-w-4xl px-6 py-32 lg:flex-row lg:px-8">
-                {/* 
-                  <header className="col-span-1 flex flex-row gap-2 sm:gap-16 lg:col-span-2 lg:flex-col">
-                    <NavigationLink href="/" label="0.1 #intro" />
-                    <NavigationLink href="/projects" label="0.2 #projects" />
-                    <NavigationLink href="/technology" label="0.3 #tech" />
-                    <NavigationLink href="/contact" label="0.4 #contact" />
-                  </header> */}
                 {children}
               </div>
             </div>

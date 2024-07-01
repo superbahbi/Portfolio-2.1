@@ -291,7 +291,7 @@ const features = [
     name: "About Me",
     className: "col-span-3 md:col-span-2",
     background: (
-      <div className="flex flex-col gap-2 px-4 py-2 sm:px-6">
+      <div className="flex flex-col gap-2 px-4 py-4 sm:px-6">
         <p className="text-left tracking-tighter text-neutral-400">
           I am Robert Kugler, a full-stack software engineer based in San Luis
           Obispo, California. I specialize in building and enhancing
@@ -328,7 +328,7 @@ const features = [
     description: "I have experience in a variety of fields.",
     className: "col-span-3 lg:col-span-2",
     background: (
-      <div className="px-4 py-2 sm:px-6">
+      <div className="px-4 py-4 sm:px-6">
         <div className="w-full text-sm tracking-tighter text-neutral-400">
           <div className="flex flex-col gap-2 sm:gap-1">
             {[
@@ -397,7 +397,7 @@ const features = [
     className: "col-span-3 lg:col-span-1",
 
     background: (
-      <div className="px-4 py-2 sm:px-6">
+      <div className="px-4 py-4 sm:px-6">
         <div className="flex flex-col gap-2">
           {buttonData.map((button) => (
             <ButtonLink key={button.label} {...button} />
@@ -413,7 +413,7 @@ const features = [
     description: "Books I am currently reading.",
     className: "col-span-3 md:col-span-1",
     background: (
-      <div className="px-4 py-2 sm:px-6">
+      <div className="px-4 py-4 sm:px-6">
         <h3 className="text-left tracking-tighter text-neutral-200">
           Philanthropic Wanderlust
         </h3>
@@ -438,7 +438,7 @@ const features = [
     description: "Projects I have worked on.",
     className: "col-span-3 md:col-span-2",
     background: (
-      <div className="px-4 py-2 sm:px-6">
+      <div className="px-4 py-4 sm:px-6">
         <div className="flex items-center justify-center">
           <CardCarousel projects={projects} />
         </div>
@@ -451,7 +451,7 @@ const features = [
     description: "Current stack I am working with.",
     className: "col-span-3 lg:col-span-3",
     background: (
-      <div className="mb-4 px-4 py-2 sm:px-6">
+      <div className="px-4 py-4 sm:px-6">
         <div className="grid grid-cols-1 gap-4 text-white sm:grid-cols-2 lg:grid-cols-3">
           <TechStackItem
             Icon={SiNextdotjs}

@@ -3,7 +3,7 @@ import { TextEncrypted } from "@/components/text-encrypted";
 import { Terminal } from "lucide-react";
 import * as React from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import CardSpotlight from "@/components/CardSpotlight";
+import CardSpotlight from "@/components/card-spotlight";
 import {
   SiCss3,
   SiExpo,
