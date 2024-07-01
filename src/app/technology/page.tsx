@@ -6,7 +6,7 @@ import { Terminal } from "lucide-react";
 export default function Page() {
   return (
     <main className="col-span-1 lg:col-span-4">
-      <h1 className="mb-4 font-mono text-2xl font-semibold tracking-wider text-slate-100">
+      <h1 className="mb-4 font-mono text-2xl font-semibold tracking-wider text-neutral-100">
         <div className="flex flex-row gap-1">
           <Terminal className="h-8 w-8" />
           <TextEncrypted interval={100} text="Technology" />

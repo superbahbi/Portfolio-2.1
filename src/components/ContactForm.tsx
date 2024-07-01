@@ -64,10 +64,10 @@ export function ContactForm() {
 
   return response ? (
     <div className="flex h-full w-full flex-col items-center justify-center">
-      <h1 className="text-center text-3xl font-bold text-slate-100">
+      <h1 className="text-center text-3xl font-bold text-neutral-100">
         Thank you for your message!
       </h1>
-      <p className="mt-2 text-center text-slate-300">
+      <p className="mt-2 text-center text-neutral-300">
         I will get back to you as soon as possible.
       </p>
     </div>

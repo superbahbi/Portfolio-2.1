@@ -2,9 +2,26 @@
 import { TextEncrypted } from "@/components/TextEncrypted";
 import { Terminal } from "lucide-react";
 import * as React from "react";
-import { ScrollArea } from "@/components/ui/scroll-area"
+import { ScrollArea } from "@/components/ui/scroll-area";
 import CardSpotlight from "@/components/CardSpotlight";
-import { SiCss3, SiExpo, SiExpress, SiFirebase, SiHtml5, SiJavascript, SiMongodb, SiNodedotjs, SiPassport, SiReact, SiReactrouter, SiSocketdotio, SiSpotify, SiStripe, SiStyledcomponents, SiTypescript } from "@icons-pack/react-simple-icons";
+import {
+  SiCss3,
+  SiExpo,
+  SiExpress,
+  SiFirebase,
+  SiHtml5,
+  SiJavascript,
+  SiMongodb,
+  SiNodedotjs,
+  SiPassport,
+  SiReact,
+  SiReactrouter,
+  SiSocketdotio,
+  SiSpotify,
+  SiStripe,
+  SiStyledcomponents,
+  SiTypescript,
+} from "@icons-pack/react-simple-icons";
 
 export interface IProject {
   id: number;
@@ -145,11 +162,11 @@ const projects: IProject[] = [
 export default function Page() {
   return (
     <main className="col-span-1 h-full lg:col-span-4">
-      <h1 className="mb-4 flex flex-row gap-1 font-mono text-2xl font-semibold tracking-wider text-slate-100">
+      <h1 className="mb-4 flex flex-row gap-1 font-mono text-2xl font-semibold tracking-wider text-neutral-100">
         <Terminal className="h-8 w-8" />
         <TextEncrypted interval={100} text="Projects" />
       </h1>
-      <ScrollArea className="h-full sm:h-[250px] w-full pr-4">
+      <ScrollArea className="h-full w-full pr-4 sm:h-[250px]">
         <div className="space-y-4">
           {projects.map((project) => {
             return <CardSpotlight key={project.title} project={project} />;

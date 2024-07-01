@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 const NavigationLink = ({ href, label }: { href: string; label: string }) => (
-  <Link href={href} className="text-slate-400 hover:text-slate-200">
+  <Link href={href} className="text-neutral-400 hover:text-neutral-200">
     <div className="group relative overflow-hidden">
       <span className="invisible">{label}</span>
       <span className="absolute left-0 top-0 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full">
@@ -40,26 +40,17 @@ export default function RootLayout({
           <BackgroundCanvas className="fixed left-0 top-0" />
           <Meteors number={20} />
           <div className="absolute left-0 top-0">
-            <div className="relative flex  w-screen items-center justify-center sm:h-screen">
-              <div className="mx-auto flex px-6 py-4 lg:flex-row lg:px-8">
-                <div className="grid max-w-xl grid-cols-1 gap-4 space-y-8 sm:h-72 lg:w-[870px] lg:max-w-none lg:grid-cols-8 lg:space-y-0">
-                  <div className="col-span-1 flex max-w-xs flex-col lg:col-span-1">
-                    <Image
-                      src={logo}
-                      alt="Robert Kugler"
-                      height="64"
-                      width="64"
-                    />
-                  </div>
-
+            <div className="relative flex w-screen flex-col items-center">
+              {/* <Image src={logo} alt="Robert Kugler" height="64" width="64" /> */}
+              <div className="mx-auto flex max-w-4xl px-6 py-32 lg:flex-row lg:px-8">
+                {/* 
                   <header className="col-span-1 flex flex-row gap-2 sm:gap-16 lg:col-span-2 lg:flex-col">
                     <NavigationLink href="/" label="0.1 #intro" />
                     <NavigationLink href="/projects" label="0.2 #projects" />
                     <NavigationLink href="/technology" label="0.3 #tech" />
                     <NavigationLink href="/contact" label="0.4 #contact" />
-                  </header>
-                  {children}
-                </div>
+                  </header> */}
+                {children}
               </div>
             </div>
           </div>

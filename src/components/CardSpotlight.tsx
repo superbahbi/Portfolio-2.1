@@ -6,7 +6,7 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle
+  CardTitle,
 } from "@/components/ui/card";
 import React, { useRef, useState } from "react";
 
@@ -49,14 +49,14 @@ const CardSpotlight = ({ project }: CardSpotlightProps) => {
 
   return (
     <Card
-    ref={divRef}
-    onMouseMove={handleMouseMove}
-    onFocus={handleFocus}
-    onBlur={handleBlur}
-    onMouseEnter={handleMouseEnter}
-    onMouseLeave={handleMouseLeave}
-    className="relative w-full bg-transparent"
-  >
+      ref={divRef}
+      onMouseMove={handleMouseMove}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="relative w-full bg-transparent"
+    >
       <div
         className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
         style={{
@@ -66,14 +66,14 @@ const CardSpotlight = ({ project }: CardSpotlightProps) => {
       />
       <CardHeader>
         <CardTitle className="text-white">{project.title}</CardTitle>
-        <CardDescription className="flex flex-col gap-2 text-slate-300">
+        <CardDescription className="flex flex-col gap-2 text-neutral-300">
           <span>{project.description}</span>
-          <span className="flex gap-2 flex-wrap">
+          <span className="flex flex-wrap gap-2">
             {project.technology.map((tech) => (
               <Button
                 key={tech.name}
                 variant="outline"
-                className="flex text-white hover:text-black gap-1 w-full sm:w-auto"
+                className="flex w-full gap-1 text-white hover:text-black sm:w-auto"
               >
                 <span>{tech.icon}</span>
                 <span className="font-light">{tech.name}</span>
@@ -83,11 +83,11 @@ const CardSpotlight = ({ project }: CardSpotlightProps) => {
         </CardDescription>
       </CardHeader>
       {/* <CardContent></CardContent> */}
-      <CardFooter className="flex flex-col sm:flex-row justify-end gap-2">
-        <Button className="relative flex gap-1 rounded-lg bg-slate-200 text-black hover:bg-white w-full sm:w-auto">
+      <CardFooter className="flex flex-col justify-end gap-2 sm:flex-row">
+        <Button className="relative flex w-full gap-1 rounded-lg bg-neutral-200 text-black hover:bg-white sm:w-auto">
           Code
         </Button>
-        <Button className="relative flex gap-1 rounded-lg bg-slate-200 text-black hover:bg-white w-full sm:w-auto">
+        <Button className="relative flex w-full gap-1 rounded-lg bg-neutral-200 text-black hover:bg-white sm:w-auto">
           Demo
         </Button>
       </CardFooter>
