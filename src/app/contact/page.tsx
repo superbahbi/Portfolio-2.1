@@ -1,5 +1,5 @@
-import { ContactForm } from "@/components/ContactForm";
-import { TextEncrypted } from "@/components/TextEncrypted";
+import { ContactForm } from "@/components/contact-form";
+import { TextEncrypted } from "@/components/text-encrypted";
 import { Terminal } from "lucide-react";
 
 export default function Page() {

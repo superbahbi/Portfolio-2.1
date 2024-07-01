@@ -1,5 +1,5 @@
 "use client";
-import { TextEncrypted } from "@/components/TextEncrypted";
+import { TextEncrypted } from "@/components/text-encrypted";
 import { Terminal } from "lucide-react";
 import * as React from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";

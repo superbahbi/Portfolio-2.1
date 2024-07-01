@@ -1,5 +1,5 @@
 // https://tx.shadcn.com/guides/build-blog-using-contentlayer-mdx
-import { TextEncrypted } from "@/components/TextEncrypted";
+import { TextEncrypted } from "@/components/text-encrypted";
 import { Terminal } from "lucide-react";
 const posts = [
   {

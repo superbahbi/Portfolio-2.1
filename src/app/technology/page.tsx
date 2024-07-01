@@ -1,5 +1,5 @@
 import technology from "@/assets/technology";
-import { TextEncrypted } from "@/components/TextEncrypted";
+import { TextEncrypted } from "@/components/text-encrypted";
 import { Button } from "@/components/ui/button";
 import { Terminal } from "lucide-react";
 

@@ -1,5 +1,5 @@
 import { BackgroundCanvas } from "@/components/background-canvas";
-import Meteors from "@/components/Meteors";
+import Meteors from "@/components/meteors";
 import { GeistSans } from "geist/font/sans";
 import Link from "next/link";
 import { Metadata } from "next/types";
