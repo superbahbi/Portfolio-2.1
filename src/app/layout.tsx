@@ -1,10 +1,10 @@
 import { BackgroundCanvas } from "@/components/background-canvas";
-import Meteors from "@/components/meteors";
 import { GeistSans } from "geist/font/sans";
 import Link from "next/link";
 import { Metadata } from "next/types";
 import "./globals.css";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Meteors } from "@/components/meteors";
 
 export const metadata: Metadata = {
   title: "Robert Kugler | Portofilio",
