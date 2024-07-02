@@ -293,7 +293,7 @@ const features = [
   {
     Icon: Terminal,
     name: "Robert Kugler",
-    description: "Full Stack Software Engineer",
+    description: "Full Stack Software Engineer, San Luis Obispo, CA.",
     className: "col-span-3 md:col-span-1 flex justify-between",
     background: (
       <div className=" rounded-md grayscale transition-all duration-300 ease-out [mask-image:linear-gradient(to_bottom,transparent_10%,#000_100%)] group-hover:scale-105">
