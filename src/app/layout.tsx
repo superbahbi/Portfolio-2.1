@@ -1,5 +1,5 @@
 import { BackgroundCanvas } from "@/components/background-canvas";
-import { Meteors } from "@/components/meteors";
+import { Meteors } from "@/components/meteor";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { GeistSans } from "geist/font/sans";
 import { Metadata } from "next/types";
