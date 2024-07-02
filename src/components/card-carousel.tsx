@@ -104,7 +104,7 @@ const CardCarousel = ({ projects }: CardCarouselProps) => {
                   <span className="text-xs text-white sm:h-24">
                     {project.description}
                   </span>
-                  <span className="flex flex-wrap gap-2">
+                  <span className="flex flex-wrap justify-center gap-2 sm:justify-start">
                     {project.technology.map((tech) => (
                       <Button key={tech.name} variant="outline" size="icon">
                         <span>{tech.icon}</span>
@@ -113,7 +113,7 @@ const CardCarousel = ({ projects }: CardCarouselProps) => {
                     ))}
                   </span>
                 </CardContent>
-                <CardFooter className="flex flex-col justify-end gap-2 sm:flex-row">
+                <CardFooter className="flex flex-row justify-center gap-2 sm:justify-end">
                   {project.code && (
                     <a href={project.code} target="_blank">
                       <Button

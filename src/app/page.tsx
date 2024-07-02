@@ -110,7 +110,7 @@ const projects: IProject[] = [
     ],
     description:
       "A platform for budgeting and tracking expenses. Built with NextJs, Typescript, Tailwindcss, and Supabase.",
-    website_link: "https://myere.com",
+    website_link: "https://myeremoney.com",
     website_label: "Website",
   },
   {
@@ -240,7 +240,7 @@ const projects: IProject[] = [
       { name: "Animation", icon: <SiCss3 size={16} /> },
     ],
     description: "My personal portfolio built in react framework. ",
-    website_link: "https://robertkugler/dev/",
+    website_link: "https://robertkugler.dev/",
     website_label: "Demo",
     code: "https://github.com/superbahbi/portfolio-2.1",
   },
