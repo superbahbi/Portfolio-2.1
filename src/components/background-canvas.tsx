@@ -2,20 +2,25 @@
 import { PointMaterial, Points } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { inSphere as randomInSphere } from "maath/random";
-import { useRef } from "react";
+import { useTheme } from "next-themes";
+import { use, useEffect, useRef, useState } from "react";
 import { type Mesh } from "three";
 
 const sphere = randomInSphere(new Float32Array(35000), { radius: 1 });
 
 const Stars = (props: any) => {
   const ref = useRef<Mesh>();
-
+  const { theme } = useTheme();
+  const [color, setColor] = useState("#737373");
   useFrame((_, delta) => {
     if (ref.current) {
       ref.current.rotation.x += delta / 300;
       ref.current.rotation.z += delta / 300;
     }
   });
+  useEffect(() => {
+    setColor(theme === "dark" ? "#ffffff" : "#000000");
+  }, [theme]);
 
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
@@ -28,7 +33,7 @@ const Stars = (props: any) => {
       >
         <PointMaterial
           transparent
-          color="#ffffff"
+          color={color}
           size={0.001}
           sizeAttenuation
           depthWrite={false}

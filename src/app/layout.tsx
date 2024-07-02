@@ -1,10 +1,11 @@
 import { BackgroundCanvas } from "@/components/background-canvas";
 import { Meteors } from "@/components/meteor";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { cn } from "@/lib/utils";
 import { GeistSans } from "geist/font/sans";
+import { ThemeProvider } from "@/components/theme-provider";
 import { Metadata } from "next/types";
 import "./globals.css";
-import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Robert Kugler | Portofilio",
@@ -17,17 +18,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cn("antialiased", GeistSans.className)}>
+    <html
+      lang="en"
+      className={cn("antialiased", GeistSans.className)}
+      suppressHydrationWarning
+    >
       <body>
-        <div className="relative h-screen w-screen overflow-hidden">
-          <BackgroundCanvas className="fixed left-0 top-0" />
-          <Meteors number={20} />
-          <div className="absolute left-0 top-0 flex w-screen flex-col items-center">
-            <ScrollArea className="mx-auto flex h-screen max-w-4xl lg:flex-row">
-              <div className="px-6 py-16 lg:px-8">{children}</div>
-            </ScrollArea>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="relative h-screen w-screen overflow-hidden">
+            <BackgroundCanvas className="fixed left-0 top-0" />
+            <Meteors number={20} />
+            <div className="absolute left-0 top-0 flex w-screen flex-col items-center">
+              <ScrollArea className="mx-auto flex h-screen max-w-4xl lg:flex-row">
+                <div className="px-6 py-16 lg:px-8">{children}</div>
+              </ScrollArea>
+            </div>
           </div>
-        </div>
+        </ThemeProvider>
       </body>
     </html>
   );

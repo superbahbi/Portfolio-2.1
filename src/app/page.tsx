@@ -1,20 +1,18 @@
 "use client";
 import { BentoCard, BentoGrid } from "@/components/bento-grid";
 import { CardCarousel } from "@/components/card-carousel";
+import { ModeToggle } from "@/components/mode-toggle";
 import { Button } from "@/components/ui/button";
 import {
   SiAngular,
   SiAstro,
   SiCss3,
   SiExpo,
-  SiExpress,
   SiFirebase,
   SiHtml5,
-  SiMongodb,
   SiMysql,
   SiNextdotjs,
   SiNodedotjs,
-  SiPassport,
   SiPostgresql,
   SiReact,
   SiReactrouter,
@@ -40,7 +38,9 @@ import {
   ProjectorIcon,
   Terminal,
 } from "lucide-react";
+import { useTheme } from "next-themes";
 import Image from "next/image";
+import { useEffect } from "react";
 
 const buttonData = [
   {
@@ -75,11 +75,7 @@ const ButtonLink = ({
   label: string;
 }) => (
   <a href={href} target="_blank" className="flex">
-    <Button
-      className="flex w-full gap-1 text-white"
-      variant="outline"
-      size="sm"
-    >
+    <Button className="flex w-full gap-1" variant="outline" size="sm">
       <Icon className="size-4" />
       <span className="text-sm">{label}</span>
     </Button>
@@ -98,6 +94,49 @@ export interface IProject {
   website_link: string;
   website_label: string;
 }
+
+const JobItem = ({
+  job,
+}: {
+  job: { role: string; company: string; period: string; color: string };
+}) => (
+  <div className="grid grid-cols-2 sm:grid-cols-3 sm:items-center">
+    <div className="order-1 col-span-1 flex items-center gap-2 sm:order-none">
+      <span className={`size-2 rounded-full ${job.color}`}></span>
+      <span className="overflow-hidden truncate whitespace-nowrap">
+        {job.role}
+      </span>
+    </div>
+    <div className="order-3 col-span-2 flex justify-normal pl-4 sm:order-none sm:col-span-1 sm:pl-0">
+      {job.company}
+    </div>
+    <div className="order-2 flex justify-end sm:order-none sm:col-start-3">
+      {job.period}
+    </div>
+  </div>
+);
+
+const TechStackItem = ({
+  Icon,
+  name,
+  description,
+}: {
+  Icon: any;
+  name: string;
+  description: string;
+}) => (
+  <div className="flex gap-2">
+    <div className="flex rounded-md border border-dashed border-border bg-transparent p-3">
+      <Icon className="size-5" />
+    </div>
+    <div className="flex flex-col justify-center">
+      <span>{name}</span>
+      <p className="text-left text-xs tracking-tighter text-muted-foreground">
+        {description}
+      </p>
+    </div>
+  </div>
+);
 
 const projects: IProject[] = [
   {
@@ -233,7 +272,7 @@ const projects: IProject[] = [
       { name: "Reactjs", icon: <SiReact size={16} /> },
       { name: "CSS3", icon: <SiCss3 size={16} /> },
       { name: "HTML5", icon: <SiHtml5 size={16} /> },
-      { name: "Socket.io", icon: "<SiSocketdotio size={16} />" },
+      { name: "Socket.io", icon: <SiSocketdotio size={16} /> },
     ],
     description:
       "An online Tic Tac Toe game built with ReactJS and Socket.io. Challenge your friends and enjoy seamless, real-time gameplay.",
@@ -287,57 +326,14 @@ const projects: IProject[] = [
   },
 ];
 
-const JobItem = ({
-  job,
-}: {
-  job: { role: string; company: string; period: string; color: string };
-}) => (
-  <div className="grid grid-cols-2 sm:grid-cols-3 sm:items-center">
-    <div className="order-1 col-span-1 flex items-center gap-2 sm:order-none">
-      <span className={`size-2 rounded-full ${job.color}`}></span>
-      <span className="overflow-hidden truncate whitespace-nowrap">
-        {job.role}
-      </span>
-    </div>
-    <div className="order-3 col-span-2 flex justify-normal pl-4 sm:order-none sm:col-span-1 sm:pl-0">
-      {job.company}
-    </div>
-    <div className="order-2 flex justify-end sm:order-none sm:col-start-3">
-      {job.period}
-    </div>
-  </div>
-);
-
-const TechStackItem = ({
-  Icon,
-  name,
-  description,
-}: {
-  Icon: any;
-  name: string;
-  description: string;
-}) => (
-  <div className="flex gap-2">
-    <div className="flex rounded-md border border-dashed border-border bg-transparent p-3">
-      <Icon className="size-5 text-white" />
-    </div>
-    <div className="flex flex-col justify-center">
-      <span className="text-white">{name}</span>
-      <p className="text-left text-xs tracking-tighter text-neutral-400">
-        {description}
-      </p>
-    </div>
-  </div>
-);
-
 const features = [
   {
     Icon: Terminal,
     name: "Robert Kugler",
-    description: "Full Stack Software Engineer, San Luis Obispo, CA.",
+    description: `Full Stack Software Engineer, San Luis Obispo, CA.`,
     className: "col-span-3 md:col-span-1 flex justify-between",
     background: (
-      <div className=" rounded-md grayscale transition-all duration-300 ease-out [mask-image:linear-gradient(to_bottom,transparent_10%,#000_100%)] group-hover:scale-105">
+      <div className=" rounded-md transition-all duration-300 ease-out [mask-image:linear-gradient(to_bottom,transparent_1%,#000_100%)] group-hover:scale-105">
         <Image
           src="/me.jpg"
           alt="Robert Kugler"
@@ -347,8 +343,12 @@ const features = [
         />
       </div>
     ),
+    right: (
+      <div className="block md:hidden">
+        <ModeToggle />
+      </div>
+    ),
   },
-
   {
     Icon: FileTextIcon,
     name: "About Me",
@@ -356,14 +356,14 @@ const features = [
     className: "col-span-3 md:col-span-2",
     background: (
       <div className="flex flex-col gap-2 px-4 py-4 sm:px-6">
-        <p className="text-left tracking-tighter text-neutral-400">
+        <p className="text-justify tracking-tighter  sm:text-left">
           I am Robert Kugler, a full-stack software engineer based in San Luis
           Obispo, California. I specialize in building and enhancing
           applications using Typescript, React, and React Native. My dedication
           to continuous learning and improvement is evident in my active GitHub
           repositories, where I consistently update my latest projects.
         </p>
-        <p className="text-left tracking-tighter text-neutral-400">
+        <p className="text-justify tracking-tighter sm:text-left">
           I am currently developing Myere, a finance management tool designed to
           simplify budgeting and expense tracking. Myere automates budgeting
           tasks, manages subscriptions, provides automated money-saving
@@ -372,17 +372,22 @@ const features = [
           financial documents and a calendar view for transactions, Myere is
           dedicated to making budgeting easy and stress-free. Learn more and
           join our waitlist on the{" "}
-          <a href="https://myere.com" className="underline">
+          <a href="https://myeremoney.com" className="underline">
             Myere website
           </a>
           .
         </p>
-        <p className="text-left tracking-tighter text-neutral-400">
+        <p className="text-justify tracking-tighter sm:text-left">
           As a dedicated software engineering professional, I strive to leverage
           my skills to provide innovative and effective solutions. For
           questions, collaborations, or more information about my projects and
           professional journey, please feel free to reach out.
         </p>
+      </div>
+    ),
+    right: (
+      <div className="hidden md:block">
+        <ModeToggle />
       </div>
     ),
   },
@@ -393,7 +398,7 @@ const features = [
     className: "col-span-3 lg:col-span-2",
     background: (
       <div className="px-4 py-4 sm:px-6">
-        <div className="w-full text-sm tracking-tighter text-neutral-400">
+        <div className="w-full text-sm tracking-tighter">
           <div className="flex flex-col gap-2 sm:gap-1">
             {[
               {
@@ -464,10 +469,8 @@ const features = [
     className: "col-span-3 md:col-span-1",
     background: (
       <div className="px-4 py-4 sm:px-6">
-        <h3 className="text-left tracking-tighter text-neutral-200">
-          Philanthropic Wanderlust
-        </h3>
-        <span className="text-left text-sm tracking-tighter text-neutral-400">
+        <h3 className="text-left tracking-tighter">Philanthropic Wanderlust</h3>
+        <span className="text-left text-sm tracking-tighter">
           by: Danell Lynn
         </span>
         <div className="py-2 ">
@@ -502,7 +505,7 @@ const features = [
     className: "col-span-3 lg:col-span-3",
     background: (
       <div className="px-4 py-4 sm:px-6">
-        <div className="grid grid-cols-1 gap-4 text-white sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <TechStackItem
             Icon={SiNextdotjs}
             name="Next.js"

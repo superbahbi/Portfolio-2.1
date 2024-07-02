@@ -67,7 +67,7 @@ const CardSpotlight = ({ project }: CardSpotlightProps) => {
       />
       <CardHeader>
         <CardTitle className="text-white">{project.title}</CardTitle>
-        <CardDescription className="flex flex-col gap-2 text-neutral-300">
+        <CardDescription className="flex flex-col gap-2">
           <span>{project.description}</span>
           <span className="flex flex-wrap gap-2">
             {project.technology.map((tech) => (

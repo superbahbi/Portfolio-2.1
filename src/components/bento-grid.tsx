@@ -26,6 +26,7 @@ const BentoCard = ({
   description,
   href,
   cta,
+  right,
 }: {
   name?: string;
   className: string;
@@ -34,33 +35,38 @@ const BentoCard = ({
   description?: string;
   href?: string;
   cta?: string;
+  right?: ReactNode;
 }) => (
   <div
     key={name}
     className={cn(
-      "group relative col-span-3 flex flex-col overflow-hidden rounded-xl ",
-      "bg-black [border:1px_solid_rgba(255,255,255,.1)] [box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
+      "group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-xl",
+      // light styles
+      "bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
+      // dark styles
+      "transform-gpu dark:bg-black dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
       className,
     )}
   >
-    <div className="z-10 flex transform-gpu flex-col gap-1 px-4 py-4 transition-all duration-300 group-hover:-translate-y-2 sm:px-6">
-      <Button
-        variant="outline"
-        asChild
-        size="icon"
-        className="mb-2 rounded-full p-2"
-      >
-        <Icon className="size-4 origin-left transform-gpu text-neutral-200 transition-all duration-300 ease-in-out group-hover:scale-75" />
-      </Button>
-      {name && (
-        <TextEncrypted interval={50} text={name} className="text-white" />
-      )}
+    <div className="z-10 flex transform-gpu flex-col gap-1 px-4 py-4  sm:px-6">
+      <div className="flex justify-between">
+        <Button
+          variant="outline"
+          asChild
+          size="icon"
+          className="mb-2 rounded-full p-2"
+        >
+          <Icon className="size-4 " />
+        </Button>
+        {right}
+      </div>
+      {name && <TextEncrypted interval={50} text={name} />}
 
       {description && (
         <TextEncrypted
           interval={100}
           text={description}
-          className=" text-sm text-neutral-400"
+          className="text-sm text-muted-foreground"
         />
       )}
 
@@ -74,6 +80,7 @@ const BentoCard = ({
       )}
     </div>
     <div className="">{background}</div>
+    <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
   </div>
 );
 

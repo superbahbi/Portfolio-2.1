@@ -103,12 +103,12 @@ const CardCarousel = ({ projects }: CardCarouselProps) => {
                   <LinkPreview url={project.website_link} className="p-0.5" />
                 </div>
                 <CardHeader>
-                  <CardTitle className="text-white">{project.title}</CardTitle>
-                  <CardDescription className="text-xs text-white sm:h-24">
+                  <CardTitle>{project.title}</CardTitle>
+                  <CardDescription className="text-xs sm:h-24">
                     {project.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="flex flex-col gap-2 text-neutral-300">
+                <CardContent className="flex flex-col gap-2">
                   <span className="flex flex-wrap justify-center gap-2 sm:justify-start">
                     {project.technology.map((tech) => (
                       <Button key={tech.name} variant="outline" size="icon">
@@ -121,17 +121,13 @@ const CardCarousel = ({ projects }: CardCarouselProps) => {
                 <CardFooter className="flex flex-row justify-center gap-2 sm:justify-end">
                   {project.code && (
                     <a href={project.code} target="_blank">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="text-white"
-                      >
+                      <Button variant="outline" size="sm">
                         Code
                       </Button>
                     </a>
                   )}
                   <a href={project.website_link} target="_blank">
-                    <Button variant="outline" size="sm" className="text-white">
+                    <Button variant="outline" size="sm">
                       {project.website_label}
                     </Button>
                   </a>
@@ -147,7 +143,7 @@ const CardCarousel = ({ projects }: CardCarouselProps) => {
             onClick={() => onDotButtonClick(index)}
             key={index}
             className={`mx-1 inline-block h-2 w-2 rounded-full ${
-              index === current - 1 ? "bg-white" : "bg-neutral-800"
+              index === current - 1 ? "bg-primary" : "bg-muted-foreground"
             }`}
           />
         ))}
