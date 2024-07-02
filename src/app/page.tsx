@@ -245,6 +245,28 @@ const projects: IProject[] = [
     code: "https://github.com/superbahbi/portfolio-2.1",
   },
 ];
+
+const JobItem = ({
+  job,
+}: {
+  job: { role: string; company: string; period: string; color: string };
+}) => (
+  <div className="grid grid-cols-2 sm:grid-cols-3 sm:items-center">
+    <div className="order-1 col-span-1 flex items-center gap-2 sm:order-none">
+      <span className={`size-2 rounded-full ${job.color}`}></span>
+      <span className="overflow-hidden truncate whitespace-nowrap">
+        {job.role}
+      </span>
+    </div>
+    <div className="order-3 col-span-2 flex justify-normal pl-4 sm:order-none sm:col-start-2 sm:pl-0">
+      {job.company}
+    </div>
+    <div className="order-2 flex justify-end sm:order-none sm:col-start-3">
+      {job.period}
+    </div>
+  </div>
+);
+
 const TechStackItem = ({
   Icon,
   name,
@@ -370,21 +392,7 @@ const features = [
                 color: "bg-red-400",
               },
             ].map((job, index) => (
-              <div
-                key={index}
-                className="grid grid-cols-2 sm:grid-cols-3 sm:items-center"
-              >
-                <div className="col-span-2 flex items-center gap-2 sm:col-span-1">
-                  <span className={`size-2 rounded-full ${job.color}`}></span>
-                  {job.role}
-                </div>
-                <div className="col-start-1 flex justify-normal overflow-hidden truncate whitespace-nowrap pl-4 sm:col-start-2 sm:justify-normal sm:pl-0">
-                  {job.company}
-                </div>
-                <div className="col-start-2 flex justify-end sm:col-start-3">
-                  {job.period}
-                </div>
-              </div>
+              <JobItem key={index} job={job} />
             ))}
           </div>
         </div>
