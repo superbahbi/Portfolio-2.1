@@ -79,37 +79,7 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
         meteor: "meteor 5s linear infinite",
       },
-      scrollbar: {
-        hide: {
-          /* For webkit browsers */
-          "&::-webkit-scrollbar": {
-            display: "none",
-          },
-          /* For other browsers */
-          "-ms-overflow-style": "none", // IE and Edge
-          "scrollbar-width": "none", // Firefox
-        },
-      },
     },
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    function ({
-      addUtilities,
-    }: {
-      addUtilities: (utilities: Record<string, any>) => void;
-    }) {
-      addUtilities({
-        ".scrollbar-hide": {
-          /* For webkit browsers */
-          "&::-webkit-scrollbar": {
-            display: "none",
-          },
-          /* For other browsers */
-          "-ms-overflow-style": "none", // IE and Edge
-          "scrollbar-width": "none", // Firefox
-        },
-      });
-    },
-  ],
+  plugins: [require("tailwindcss-animate")],
 };

@@ -258,7 +258,7 @@ const JobItem = ({
         {job.role}
       </span>
     </div>
-    <div className="order-3 col-span-2 flex justify-normal pl-4 sm:order-none sm:col-start-2 sm:pl-0">
+    <div className="order-3 col-span-2 flex justify-normal pl-4 sm:order-none sm:col-span-1 sm:pl-0">
       {job.company}
     </div>
     <div className="order-2 flex justify-end sm:order-none sm:col-start-3">

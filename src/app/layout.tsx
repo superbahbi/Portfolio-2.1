@@ -22,7 +22,7 @@ export default function RootLayout({
           <BackgroundCanvas className="fixed left-0 top-0" />
           <Meteors number={20} />
           <div className="absolute left-0 top-0 flex w-screen flex-col items-center">
-            <ScrollArea className="scrollbar-hide mx-auto flex h-screen max-w-4xl overflow-auto lg:flex-row">
+            <ScrollArea className="mx-auto flex h-screen max-w-4xl lg:flex-row">
               <div className="px-6 py-16 lg:px-8">{children}</div>
             </ScrollArea>
           </div>
