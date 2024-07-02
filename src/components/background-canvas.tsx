@@ -11,7 +11,7 @@ const sphere = randomInSphere(new Float32Array(35000), { radius: 1 });
 const Stars = (props: any) => {
   const ref = useRef<Mesh>();
   const { theme } = useTheme();
-  const [color, setColor] = useState("#737373");
+  const [color, setColor] = useState("");
   useFrame((_, delta) => {
     if (ref.current) {
       ref.current.rotation.x += delta / 300;
@@ -19,7 +19,12 @@ const Stars = (props: any) => {
     }
   });
   useEffect(() => {
-    setColor(theme === "dark" ? "#ffffff" : "#000000");
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+      .matches
+      ? "dark"
+      : "light";
+    const appliedTheme = theme === "system" ? systemTheme : theme;
+    setColor(appliedTheme === "dark" ? "#ffffff" : "#000000");
   }, [theme]);
 
   return (
