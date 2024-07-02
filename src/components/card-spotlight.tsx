@@ -1,5 +1,6 @@
 "use client";
-import { IProject } from "@/app/projects/page";
+
+import { IProject } from "@/app/page";
 import { Button } from "@/components/ui/button";
 import {
   Card,

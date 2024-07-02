@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans";
 import Link from "next/link";
 import { Metadata } from "next/types";
 import "./globals.css";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export const metadata: Metadata = {
   title: "Robert Kugler | Portofilio",
@@ -33,16 +34,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={GeistSans.className}>
       <body>
-        <div className="relative h-screen w-screen">
-          <div className="bg-radial-gradient fixed left-0 top-0 h-screen w-screen brightness-50"></div>
+        <div className="relative h-screen w-screen overflow-hidden">
           <BackgroundCanvas className="fixed left-0 top-0" />
           <Meteors number={20} />
-          <div className="absolute left-0 top-0">
-            <div className="relative flex w-screen flex-col items-center">
-              <div className="mx-auto flex max-w-4xl px-6 py-32 lg:flex-row lg:px-8">
-                {children}
-              </div>
-            </div>
+          <div className="absolute left-0 top-0 flex w-screen flex-col items-center">
+            <ScrollArea className="scrollbar-hide mx-auto flex h-screen max-w-4xl overflow-auto lg:flex-row">
+              <div className="px-6 py-16 lg:px-8">{children}</div>
+            </ScrollArea>
           </div>
         </div>
       </body>

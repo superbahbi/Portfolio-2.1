@@ -497,7 +497,7 @@ const features = [
   },
 ];
 
-export default function Home() {
+export default function Page() {
   return (
     <main className="col-span-1 lg:col-span-3">
       <BentoGrid>
