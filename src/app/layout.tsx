@@ -4,6 +4,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { GeistSans } from "geist/font/sans";
 import { Metadata } from "next/types";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Robert Kugler | Portofilio",
@@ -16,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={GeistSans.className}>
+    <html lang="en" className={cn("antialiased", GeistSans.className)}>
       <body>
         <div className="relative h-screen w-screen overflow-hidden">
           <BackgroundCanvas className="fixed left-0 top-0" />

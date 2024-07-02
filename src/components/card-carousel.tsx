@@ -12,10 +12,12 @@ import { Button } from "./ui/button";
 import {
   Card,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "./ui/card";
+import { LinkPreview } from "./link-preview";
 interface CardCarouselProps {
   projects: IProject[];
 }
@@ -97,13 +99,16 @@ const CardCarousel = ({ projects }: CardCarouselProps) => {
                     background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(255,255,255,.1), transparent 80%)`,
                   }}
                 />
+                <div>
+                  <LinkPreview url={project.website_link} className="p-0.5" />
+                </div>
                 <CardHeader>
                   <CardTitle className="text-white">{project.title}</CardTitle>
+                  <CardDescription className="text-xs text-white sm:h-24">
+                    {project.description}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col gap-2 text-neutral-300">
-                  <span className="text-xs text-white sm:h-24">
-                    {project.description}
-                  </span>
                   <span className="flex flex-wrap justify-center gap-2 sm:justify-start">
                     {project.technology.map((tech) => (
                       <Button key={tech.name} variant="outline" size="icon">

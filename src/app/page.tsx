@@ -4,6 +4,7 @@ import { CardCarousel } from "@/components/card-carousel";
 import { Button } from "@/components/ui/button";
 import {
   SiAngular,
+  SiAstro,
   SiCss3,
   SiExpo,
   SiExpress,
@@ -109,26 +110,79 @@ const projects: IProject[] = [
       { name: "Supabase", icon: <SiSupabase size={16} /> },
     ],
     description:
-      "A platform for budgeting and tracking expenses. Built with NextJs, Typescript, Tailwindcss, and Supabase.",
+      "Myere leverages advanced AI to scrutinize your subscriptions and recurring bills, uncovering potential savings and negotiating better rates. Streamline your financial management and enhance your savings with Myere. Developed using NextJs, Typescript, Tailwindcss, and Supabase.",
     website_link: "https://myeremoney.com",
     website_label: "Website",
   },
   {
-    id: "twitter-clone-app",
-    title: "Twitter Clone App",
+    id: "cadenarg",
+    title: "Cadena Restaurant Group",
     technology: [
-      { name: "React Native", icon: <SiReact size={16} /> },
-      { name: "Expo", icon: <SiExpo size={16} /> },
+      { name: "NextJs", icon: <SiNextdotjs size={16} /> },
+      { name: "Typescript", icon: <SiTypescript size={16} /> },
+      { name: "Tailwindcss", icon: <SiTailwindcss size={16} /> },
     ],
     description:
-      "A twitter clone built in react native framework using mongodb database and cloudinary storage.",
-    website_link: "https://twitter.bahbi.net/",
-    website_label: "Demo",
-    code: "https://github.com/superbahbi/twitter-clone-app",
+      "Cadena Restaurant Group provides comprehensive insights into your business operations and automates routine tasks, allowing you to focus on your core passions. Developed using NextJs, Typescript, and Tailwindcss.",
+    website_link: "https://www.cadenarg.com/",
+    website_label: "Website",
+  },
+  {
+    id: "yeschefmarketplace",
+    title: "YesChef Marketplace",
+    technology: [
+      { name: "NextJs", icon: <SiNextdotjs size={16} /> },
+      { name: "Typescript", icon: <SiTypescript size={16} /> },
+      { name: "Tailwindcss", icon: <SiTailwindcss size={16} /> },
+      { name: "Supabase", icon: <SiSupabase size={16} /> },
+    ],
+    description:
+      "YesChef Marketplace is a curated collection of top-rated restaurant software from around the web. Discover the best tools for your restaurant, cafe, or bar. Developed using NextJs, Typescript, Tailwindcss, and Supabase.",
+    website_link: "https://yeschefmarketplace-website.vercel.app/",
+    website_label: "Website",
+  },
+  {
+    id: "getrds",
+    title: "Cadena Restaurant Group",
+    technology: [
+      { name: "Astro", icon: <SiAstro size={16} /> },
+      { name: "Typescript", icon: <SiTypescript size={16} /> },
+      { name: "Tailwindcss", icon: <SiTailwindcss size={16} /> },
+    ],
+    description:
+      "Transforming eateries with data-driven insights to optimize operations and enhance customer experiences. Developed using Astro, Typescript, and Tailwindcss.",
+    website_link: "https://www.getrds.com/",
+    website_label: "Website",
+  },
+  {
+    id: "yeschef",
+    title: "YesChef Productions",
+    technology: [
+      { name: "Nextjs", icon: <SiNextdotjs size={16} /> },
+      { name: "Typescript", icon: <SiTypescript size={16} /> },
+      { name: "Tailwindcss", icon: <SiTailwindcss size={16} /> },
+    ],
+    description:
+      "Explore the culinary world with YesChef Productions. Our podcasts seamlessly blend storytelling, industry insights, and inspiring kitchen tales. Immerse yourself in the flavors behind the scenes, crafted using Nextjs, Typescript, and Tailwindcss.",
+    website_link: "https://www.yeschef.productions/",
+    website_label: "Website",
+  },
+  {
+    id: "cheddrsuite",
+    title: "CheddrSuite",
+    technology: [
+      { name: "Nextjs", icon: <SiNextdotjs size={16} /> },
+      { name: "Typescript", icon: <SiTypescript size={16} /> },
+      { name: "Tailwindcss", icon: <SiTailwindcss size={16} /> },
+    ],
+    description:
+      "CheddrSuite is a comprehensive software solution for restaurant and food retail management. It simplifies your business operations by eliminating paper clutter, reducing the need for multiple apps, and providing access from anywhere at any time. Developed using Nextjs, Typescript, and Tailwindcss.",
+    website_link: "https://cheddrsuite.com",
+    website_label: "Website",
   },
   {
     id: "twitter-clone-web",
-    title: "Twitter Clone Web",
+    title: "Twitter Clone",
     technology: [
       { name: "Reactjs", icon: <SiReact size={16} /> },
       { name: "Typescript", icon: <SiTypescript size={16} /> },
@@ -139,26 +193,10 @@ const projects: IProject[] = [
       { name: "Styled Components", icon: <SiStyledcomponents size={16} /> },
     ],
     description:
-      "A twitter clone built in reactjs framework using mongodb database and cloudinary storage.",
+      "This Twitter clone is built using the ReactJS framework, Typescript, and various other modern web technologies. It features real-time updates with Socket.io, and utilizes MongoDB for the database and Cloudinary for media storage. Styled Components ensures a polished and responsive design.",
     website_link: "https://twitter.bahbi.net",
     website_label: "Demo",
     code: "https://github.com/superbahbi/twitter-clone-web",
-  },
-  {
-    id: "twitter-clone-server",
-    title: "Twitter Clone Server",
-    technology: [
-      { name: "Nodejs", icon: <SiNodedotjs size={16} /> },
-      { name: "MongoDB", icon: <SiMongodb size={16} /> },
-      { name: "Express", icon: <SiExpress size={16} /> },
-      { name: "Socket.io", icon: <SiSocketdotio size={16} /> },
-      { name: "Passport", icon: <SiPassport size={16} /> },
-    ],
-    description:
-      "A backend service for twitter clone web and app, written in nodejs, expressjs, mongodb.",
-    website_link: "https://twitter-clone-server2.herokuapp.com/",
-    website_label: "Demo",
-    code: "https://github.com/superbahbi/twitter-clone-server",
   },
   {
     id: "wordle",
@@ -168,7 +206,8 @@ const projects: IProject[] = [
       { name: "CSS3", icon: <SiCss3 size={16} /> },
       { name: "HTML5", icon: <SiHtml5 size={16} /> },
     ],
-    description: "A worlde clone built in react framework",
+    description:
+      "A Wordle clone built using the React framework, offering an engaging and interactive word-guessing experience. Designed with modern web technologies for a smooth and responsive gameplay.",
     website_link: "https://wordle.bahbi.net/",
     website_label: "Demo",
     code: "https://github.com/superbahbi/wordle",
@@ -181,7 +220,8 @@ const projects: IProject[] = [
       { name: "CSS3", icon: <SiCss3 size={16} /> },
       { name: "HTML5", icon: <SiHtml5 size={16} /> },
     ],
-    description: "A game built in reactjs. Match and win the game.",
+    description:
+      "A fun and engaging memory game built with ReactJS. Test your memory by matching pairs to win the game, all designed with modern web technologies for a seamless experience.",
     website_link: "https://memory.bahbi.net/",
     website_label: "Demo",
     code: "https://github.com/superbahbi/barbarian-memory",
@@ -193,10 +233,10 @@ const projects: IProject[] = [
       { name: "Reactjs", icon: <SiReact size={16} /> },
       { name: "CSS3", icon: <SiCss3 size={16} /> },
       { name: "HTML5", icon: <SiHtml5 size={16} /> },
-      { name: "Socket.io", icon: <SiSocketdotio size={16} /> },
+      { name: "Socket.io", icon: "<SiSocketdotio size={16} />" },
     ],
     description:
-      "A tic tac toe game built in reactjs and socket.io. Play with your friends.",
+      "An online Tic Tac Toe game built with ReactJS and Socket.io. Challenge your friends and enjoy seamless, real-time gameplay.",
     website_link: "https://ttt-online.bahbi.net/",
     website_label: "Demo",
     code: "https://github.com/superbahbi/tictactoe-online",
@@ -210,7 +250,8 @@ const projects: IProject[] = [
       { name: "HTML5", icon: <SiHtml5 size={16} /> },
       { name: "Spotify API", icon: <SiSpotify size={16} /> },
     ],
-    description: "A spotify app built in react framework.",
+    description:
+      "Discoverify is a Spotify app built using the React framework. Explore and enjoy your favorite music with a smooth and intuitive interface powered by the Spotify API.",
     website_link: "https://discoverify.bahbi.net/",
     website_label: "Demo",
     code: "https://github.com/superbahbi/discoverify",
@@ -225,7 +266,7 @@ const projects: IProject[] = [
       { name: "Stripe", icon: <SiStripe size={16} /> },
     ],
     description:
-      "A wine flash store built in react native framework using firebase auth, real time database, and storage.",
+      "Corkify is a wine flash store built with the React Native framework. It leverages Firebase for authentication, real-time database, and storage, along with Stripe for secure payment processing.",
     website_link: "https://expo.dev/@superbahbi/Corkify",
     website_label: "Demo",
     code: "https://github.com/superbahbi/corkify",
@@ -234,12 +275,12 @@ const projects: IProject[] = [
     id: "portfolio",
     title: "Portfolio",
     technology: [
-      { name: "Reactjs", icon: <SiReact size={16} /> },
-      { name: "CSS3", icon: <SiCss3 size={16} /> },
-      { name: "HTML5", icon: <SiHtml5 size={16} /> },
-      { name: "Animation", icon: <SiCss3 size={16} /> },
+      { name: "NextJs", icon: <SiNextdotjs size={16} /> },
+      { name: "Typescript", icon: <SiTypescript size={16} /> },
+      { name: "Tailwindcss", icon: <SiTailwindcss size={16} /> },
     ],
-    description: "My personal portfolio built in react framework. ",
+    description:
+      "This is my personal portfolio, built using the Next.js framework with TypeScript and styled with Tailwind CSS. Explore my projects, skills, and professional journey.",
     website_link: "https://robertkugler.dev/",
     website_label: "Demo",
     code: "https://github.com/superbahbi/portfolio-2.1",
