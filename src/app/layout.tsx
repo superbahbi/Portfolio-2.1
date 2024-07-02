@@ -9,7 +9,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 export const metadata: Metadata = {
   title: "Robert Kugler | Portofilio",
   description:
-    "Robert Kugler is a software engineer based in San Luis Obispo, CA.",
+    "Robert Kugler is a software engineer based in San Luis Obispo, CA. He specializes in building web applications with React, TypeScript, and Node.js.",
 };
 
 const NavigationLink = ({ href, label }: { href: string; label: string }) => (
