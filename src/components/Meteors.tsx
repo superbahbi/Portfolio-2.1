@@ -19,7 +19,7 @@ const generateMeteorStyles = (number: number): Array<React.CSSProperties> => {
   });
 };
 
-export const Meteors = ({ number = 20 }: MeteorsProps) => {
+const Meteors = ({ number = 20 }: MeteorsProps) => {
   const [meteorStyles, setMeteorStyles] = useState<Array<React.CSSProperties>>(
     [],
   );
@@ -45,4 +45,4 @@ export const Meteors = ({ number = 20 }: MeteorsProps) => {
   );
 };
 
-export default Meteors;
+export { Meteors };
