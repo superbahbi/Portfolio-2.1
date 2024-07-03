@@ -59,7 +59,7 @@ export function NowPlaying() {
           className="h-full w-full object-cover"
         />
         {queue && (
-          <div className="absolute left-0 top-0 overflow-hidden rounded-lg p-2">
+          <div className="absolute right-0 top-0 overflow-hidden rounded-lg p-2">
             <div className="size-6">
               <SpotifyAnimation />
             </div>
