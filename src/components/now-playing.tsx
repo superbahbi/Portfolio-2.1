@@ -21,7 +21,7 @@ export function NowPlaying() {
   });
 
   const renderLoading = () => (
-    <h2 className="mt-4 flex items-center gap-1 text-center text-lg font-bold text-white">
+    <h2 className="mt-4 flex items-center gap-1 text-center text-lg font-bold">
       Loading...
     </h2>
   );
@@ -29,7 +29,7 @@ export function NowPlaying() {
   const renderQueueInfo = () => (
     <>
       <a href={queue?.current.songUrl} target="_blank">
-        <h2 className="mt-2 flex items-center gap-1 text-center text-lg font-bold text-white">
+        <h2 className="mt-2 flex items-center gap-1 text-center text-lg font-bold">
           {queue?.current.title}
         </h2>
       </a>
@@ -50,12 +50,10 @@ export function NowPlaying() {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="relative h-48 w-48 overflow-hidden rounded-lg">
+      <div className="relative size-36 overflow-hidden rounded-lg">
         <img
           src={queue ? queue.current.albumImageUrl : "/album-cover.png"}
           alt={queue ? `${queue.current.title} album art` : "Album art"}
-          width={192}
-          height={192}
           className="h-full w-full object-cover"
         />
         {queue && (

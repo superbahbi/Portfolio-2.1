@@ -226,8 +226,6 @@ const projects: IProject[] = [
     technology: [
       { name: "Reactjs", icon: <SiReact size={16} /> },
       { name: "Typescript", icon: <SiTypescript size={16} /> },
-      { name: "HTML5", icon: <SiHtml5 size={16} /> },
-      { name: "CSS3", icon: <SiCss3 size={16} /> },
       { name: "React Router", icon: <SiReactrouter size={16} /> },
       { name: "Socket.io", icon: <SiSocketdotio size={16} /> },
       { name: "Styled Components", icon: <SiStyledcomponents size={16} /> },
@@ -539,6 +537,14 @@ const features = [
             name="Supabase"
             description="Database and Auth"
           />
+          <TechStackItem Icon={SiSpotify} name="Spotify" description="Music" />
+          <TechStackItem Icon={SiStripe} name="Stripe" description="Payments" />
+          <TechStackItem
+            Icon={SiSocketdotio}
+            name="Socket.io"
+            description="Realtime"
+          />
+
           <TechStackItem
             Icon={MoreHorizontal}
             name=""

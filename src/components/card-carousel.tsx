@@ -104,34 +104,38 @@ const CardCarousel = ({ projects }: CardCarouselProps) => {
                 </div>
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
-                  <CardDescription className="text-xs sm:h-24">
+                  <CardDescription className="h-26 text-xs md:h-16 lg:h-14">
                     {project.description}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col gap-2">
-                  <span className="flex flex-wrap justify-center gap-2 sm:justify-start">
-                    {project.technology.map((tech) => (
-                      <Button key={tech.name} variant="outline" size="icon">
-                        <span>{tech.icon}</span>
-                        <span className="sr-only">{tech.name}</span>
-                      </Button>
-                    ))}
-                  </span>
+                  <div className="flex justify-center gap-2 sm:justify-between">
+                    <div className="flex flex-wrap justify-center gap-2">
+                      {project.technology.map((tech) => (
+                        <Button
+                          key={tech.name}
+                          variant="outline"
+                          size="icon"
+                          className="hidden md:flex"
+                        >
+                          <span>{tech.icon}</span>
+                          <span className="sr-only">{tech.name}</span>
+                        </Button>
+                      ))}
+
+                      {project.code && (
+                        <a href={project.code} target="_blank">
+                          <Button variant="outline">Code</Button>
+                        </a>
+                      )}
+                      <a href={project.website_link} target="_blank">
+                        <Button variant="outline">
+                          {project.website_label}
+                        </Button>
+                      </a>
+                    </div>
+                  </div>
                 </CardContent>
-                <CardFooter className="flex flex-row justify-center gap-2 sm:justify-end">
-                  {project.code && (
-                    <a href={project.code} target="_blank">
-                      <Button variant="outline" size="sm">
-                        Code
-                      </Button>
-                    </a>
-                  )}
-                  <a href={project.website_link} target="_blank">
-                    <Button variant="outline" size="sm">
-                      {project.website_label}
-                    </Button>
-                  </a>
-                </CardFooter>
               </Card>
             </div>
           </CarouselItem>
