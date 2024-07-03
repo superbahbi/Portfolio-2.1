@@ -77,13 +77,9 @@ const fetchAccessToken = async (): Promise<Token> => {
 const getAccessToken = async (): Promise<string> => {
   let cachedToken = getCachedToken();
   if (cachedToken) {
-    console.log("Using cached token", cachedToken);
     return cachedToken.access_token;
   }
-
-  console.log("Refreshing token");
   cachedToken = await fetchAccessToken();
-  console.log("New token fetched", cachedToken);
   return cachedToken.access_token;
 };
 
