@@ -38,9 +38,7 @@ import {
   ProjectorIcon,
   Terminal,
 } from "lucide-react";
-import { useTheme } from "next-themes";
 import Image from "next/image";
-import { useEffect } from "react";
 
 const buttonData = [
   {
@@ -61,7 +59,7 @@ const buttonData = [
   {
     href: "https://dub.sh/rkcal",
     icon: Calendar,
-    label: "Book a Call",
+    label: "Book a Meeting",
   },
 ];
 
@@ -448,7 +446,7 @@ const features = [
   {
     Icon: Link,
     name: "Link",
-    description: "Check out my resume, email me, or book a call.",
+    description: "Quick access to my resume, email, and GitHub profiles.",
     className: "col-span-3 lg:col-span-1",
 
     background: (
