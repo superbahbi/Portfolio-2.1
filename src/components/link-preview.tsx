@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { encode } from "qss";
+import querystring from "querystring";
 import React from "react";
 type LinkPreviewProps = {
   url: string;
@@ -8,7 +8,6 @@ type LinkPreviewProps = {
   width?: number;
   height?: number;
   quality?: number;
-  layout?: string;
 } & (
   | { isStatic: true; imageSrc: string }
   | { isStatic?: false; imageSrc?: never }
@@ -20,13 +19,12 @@ export const LinkPreview = ({
   width = 600, // Adjusted width for Twitter header
   height = 200, // Adjusted height for Twitter header
   quality = 50,
-  layout = "fixed",
   isStatic = false,
   imageSrc = "",
 }: LinkPreviewProps) => {
   let src;
   if (!isStatic) {
-    const params = encode({
+    const params = querystring.stringify({
       url,
       screenshot: true,
       meta: false,

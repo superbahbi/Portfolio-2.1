@@ -2,6 +2,7 @@
 import { BentoCard, BentoGrid } from "@/components/bento-grid";
 import { CardCarousel } from "@/components/card-carousel";
 import { ModeToggle } from "@/components/mode-toggle";
+import { NowPlaying } from "@/components/now-playing";
 import { Button } from "@/components/ui/button";
 import {
   SiAngular,
@@ -35,10 +36,12 @@ import {
   Github,
   Link,
   MoreHorizontal,
+  Music,
   ProjectorIcon,
   Terminal,
 } from "lucide-react";
 import Image from "next/image";
+import { Suspense } from "react";
 
 const buttonData = [
   {
@@ -500,7 +503,7 @@ const features = [
     Icon: HamburgerMenuIcon,
     name: "Tech Stack",
     description: "Current stack I am working with.",
-    className: "col-span-3 lg:col-span-3",
+    className: "col-span-3 lg:col-span-2",
     background: (
       <div className="px-4 py-4 sm:px-6">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -542,6 +545,19 @@ const features = [
             description="and many more..."
           />
         </div>
+      </div>
+    ),
+  },
+  {
+    Icon: Music,
+    name: "Now Playing",
+    description: "What I am currently listening to.",
+    className: "col-span-3 lg:col-span-1",
+    background: (
+      <div className="px-4 py-4 sm:px-6">
+        <Suspense fallback={<div>Loading...</div>}>
+          <NowPlaying />
+        </Suspense>
       </div>
     ),
   },
