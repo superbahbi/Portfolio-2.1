@@ -416,6 +416,12 @@ const features = [
           <div className="flex flex-col gap-2 sm:gap-1">
             {[
               {
+                role: "Cofounder",
+                company: "Juke",
+                period: "July '24 - Present",
+                color: "bg-green-400",
+              },
+              {
                 role: "Founder",
                 company: "Myere",
                 period: "Apr '24 - Present",
