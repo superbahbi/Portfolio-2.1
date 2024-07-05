@@ -141,6 +141,21 @@ const TechStackItem = ({
 
 const projects: IProject[] = [
   {
+    id: "juke",
+    title: "Juke",
+    technology: [
+      { name: "NextJs", icon: <SiNextdotjs size={16} /> },
+      { name: "Typescript", icon: <SiTypescript size={16} /> },
+      { name: "Tailwindcss", icon: <SiTailwindcss size={16} /> },
+      { name: "Supabase", icon: <SiSupabase size={16} /> },
+      { name: "Expo", icon: <SiExpo size={16} /> },
+    ],
+    description:
+      "Juke is a music social app built for venues, artists, and fans. It features a sleek and modern design, with a focus on user experience and ease of use. Juke is built using Expo, which allows for cross-platform compatibility and seamless integration with the Apple App Store and Google Play Store. Developed using NextJs, Typescript, Tailwindcss, and Supabase.",
+    website_link: "https://www.joinjuke.app",
+    website_label: "Website",
+  },
+  {
     id: "myere",
     title: "Myere",
     technology: [
