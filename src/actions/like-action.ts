@@ -6,7 +6,7 @@ import { z } from "zod";
 import { action } from "./safe-action";
 import { client } from "@/lib/kv";
 
-export const voteAction = action(
+export const likeAction = action(
   z.object({
     id: z.string(),
   }),
@@ -16,11 +16,9 @@ export const voteAction = action(
     const hasVoted = await client.sadd(`apps:${id}:ip:${clientIP}`, true);
 
     if (!hasVoted) {
-      throw new Error("You have already voted");
+      throw new Error("You have already liked");
     }
-
-    await client.incr(`apps:${id}`);
-
     revalidatePath("/");
+    return await client.incr(`apps:${id}`);
   },
 );

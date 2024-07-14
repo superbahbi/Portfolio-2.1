@@ -1,9 +1,10 @@
-"use client";
 import { BentoCard, BentoGrid } from "@/components/bento-grid";
 import { CardCarousel } from "@/components/card-carousel";
+import { Like } from "@/components/like-book";
 import { ModeToggle } from "@/components/mode-toggle";
 import { NowPlaying } from "@/components/now-playing";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import {
   SiAngular,
   SiAstro,
@@ -39,6 +40,7 @@ import {
   Music,
   ProjectorIcon,
   Terminal,
+  ThumbsUp,
 } from "lucide-react";
 import Image from "next/image";
 import { Suspense } from "react";
@@ -493,7 +495,16 @@ const features = [
         <span className="text-left text-sm tracking-tighter">
           by: Danell Lynn
         </span>
-        <div className="py-2 ">
+        <div className="relative py-2">
+          <div className="absolute bottom-3 right-1 z-10">
+            <Suspense
+              fallback={
+                <Skeleton className="h-8 w-16 flex-col items-center px-6" />
+              }
+            >
+              <Like id="book:philanthropic-wanderlust" />
+            </Suspense>
+          </div>
           <a href="https://www.goodreads.com/book/show/27393058-philanthropic-wanderlust">
             <img
               src="/pw_by_dl.jpg"
