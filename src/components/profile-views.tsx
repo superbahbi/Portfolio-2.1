@@ -31,7 +31,6 @@ export function ProfileViews() {
   return (
     <div className="flex items-center gap-1 text-sm text-muted-foreground">
       <div className="flex items-center gap-2 pr-4">
-        <Eye size={18} />
         <span className="flex animate-[counter_3s_ease-out_forwards] tabular-nums [counter-set:_num_var(--num)] before:content-[counter(num)]">
           <span className="sr-only">
             {Intl.NumberFormat("en", {
@@ -41,6 +40,7 @@ export function ProfileViews() {
             }).format(views ?? 0)}
           </span>
         </span>
+        <Eye size={18} />
       </div>
     </div>
   );
