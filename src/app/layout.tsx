@@ -38,7 +38,7 @@ export default function RootLayout({
               <BackgroundCanvas className="fixed left-0 top-0" />
               <Meteors number={20} />
               <div>
-                <div className="absolute bottom-4 right-4">
+                <div className="absolute right-4 top-4">
                   <ProfileViews />
                 </div>
               </div>
