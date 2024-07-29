@@ -4,7 +4,7 @@ import { setViewCount } from "@/actions/set-view-count";
 import { Eye } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-export function ProfileViews() {
+const ProfileViews = () => {
   const [views, setViews] = useState(0);
   const called = useRef(false);
 
@@ -45,3 +45,5 @@ export function ProfileViews() {
     </div>
   );
 }
+
+export { ProfileViews };

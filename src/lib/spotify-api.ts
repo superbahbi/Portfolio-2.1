@@ -83,7 +83,7 @@ const getAccessToken = async (): Promise<string> => {
   return cachedToken.access_token;
 };
 
-export const getQueue = async () => {
+const getQueue = async () => {
   const access_token = await getAccessToken();
 
   const response = await fetch(QUEUE_ENDPOINT, {
@@ -104,7 +104,7 @@ export const getQueue = async () => {
   return response.json();
 };
 
-export async function getQueueItem() {
+const getQueueItem = async () => {
   try {
     const queue = await getQueue();
 
@@ -129,3 +129,5 @@ export async function getQueueItem() {
     return null;
   }
 }
+
+export { getQueue, getQueueItem };

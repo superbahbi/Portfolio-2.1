@@ -1,16 +1,13 @@
 "use client";
+import { TextEncryptedProps } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
-interface TextEncryptedProps {
-  text: string;
-  interval?: number;
-  className?: string;
-}
+
 
 const chars = "-_~`!@#$%^&*()+=[]{}|;:,.<>?";
 
-export const TextEncrypted = ({
+const TextEncrypted = ({
   text,
   interval = 50,
   className,
@@ -41,10 +38,10 @@ export const TextEncrypted = ({
   const remainder =
     outputText.length < text.length
       ? text
-          .slice(outputText.length)
-          .split("")
-          .map(() => chars[Math.floor(Math.random() * chars.length)])
-          .join("")
+        .slice(outputText.length)
+        .split("")
+        .map(() => chars[Math.floor(Math.random() * chars.length)])
+        .join("")
       : "";
 
   if (!isMounted) {
@@ -58,3 +55,5 @@ export const TextEncrypted = ({
     </span>
   );
 };
+
+export { TextEncrypted };

@@ -9,12 +9,12 @@ interface LottieProps<T extends Record<string, unknown>> {
   id: string;
 }
 
-export function LazyLottie<T extends Record<string, unknown>>({
+const LazyLottie = <T extends Record<string, unknown>>({
   getAnimationData,
   id,
   ref,
   ...props
-}: LottieProps<T> & Omit<LottieComponentProps, "animationData">) {
+}: LottieProps<T> & Omit<LottieComponentProps, "animationData">) => {
   const { data } = useQuery({
     queryKey: [id],
     queryFn: async () => {
@@ -31,3 +31,5 @@ export function LazyLottie<T extends Record<string, unknown>>({
     </Suspense>
   );
 }
+
+export { LazyLottie };

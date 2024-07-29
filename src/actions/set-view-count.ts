@@ -2,6 +2,7 @@
 
 import { client } from "@/lib/kv";
 
-export async function setViewCount(path: string) {
+const setViewCount = async (path: string) => {
   return client.incr(`views-${path}`);
 }
+export { setViewCount };

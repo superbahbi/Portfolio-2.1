@@ -3,7 +3,7 @@ import { getQueueItem } from "@/lib/spotify-api";
 import { useQuery } from "react-query";
 import { SpotifyAnimation } from "./spotify-animation";
 
-export function NowPlaying() {
+const NowPlaying = () => {
   const { data: queue, isLoading } = useQuery("queueItem", getQueueItem, {
     refetchInterval: 30000,
     initialData: {
@@ -73,3 +73,5 @@ export function NowPlaying() {
     </div>
   );
 }
+
+export { NowPlaying };

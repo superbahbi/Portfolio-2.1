@@ -1,25 +1,24 @@
 "use client";
 
-import { IProject } from "@/app/page";
 import {
   Carousel,
   CarouselApi,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { Project } from "@/lib/types";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { LinkPreview } from "./link-preview";
 import { Button } from "./ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
-  CardTitle,
+  CardTitle
 } from "./ui/card";
-import { LinkPreview } from "./link-preview";
 interface CardCarouselProps {
-  projects: IProject[];
+  projects: Project[];
 }
 const CardCarousel = ({ projects }: CardCarouselProps) => {
   const divRef = useRef<HTMLDivElement>(null);
@@ -146,9 +145,8 @@ const CardCarousel = ({ projects }: CardCarouselProps) => {
           <button
             onClick={() => onDotButtonClick(index)}
             key={index}
-            className={`mx-1 inline-block h-2 w-2 rounded-full ${
-              index === current - 1 ? "bg-primary" : "bg-muted-foreground"
-            }`}
+            className={`mx-1 inline-block h-2 w-2 rounded-full ${index === current - 1 ? "bg-primary" : "bg-muted-foreground"
+              }`}
           />
         ))}
       </div>

@@ -1,6 +1,6 @@
 import { LazyLottie } from "./lazy-lottie";
 
-export const SpotifyAnimation: React.FC = () => {
+const SpotifyAnimation: React.FC = () => {
   return (
     <LazyLottie
       getAnimationData={() => import("../lib/lottie/spotify-animation.json")}
@@ -9,3 +9,5 @@ export const SpotifyAnimation: React.FC = () => {
     />
   );
 };
+
+export { SpotifyAnimation };

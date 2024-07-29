@@ -9,11 +9,11 @@ type LinkPreviewProps = {
   height?: number;
   quality?: number;
 } & (
-  | { isStatic: true; imageSrc: string }
-  | { isStatic?: false; imageSrc?: never }
-);
+    | { isStatic: true; imageSrc: string }
+    | { isStatic?: false; imageSrc?: never }
+  );
 
-export const LinkPreview = ({
+const LinkPreview = ({
   url,
   className,
   width = 600, // Adjusted width for Twitter header
@@ -75,3 +75,5 @@ export const LinkPreview = ({
     </div>
   );
 };
+
+export { LinkPreview };

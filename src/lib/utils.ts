@@ -1,11 +1,11 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-export function cn(...inputs: ClassValue[]) {
+const cn = (...inputs: ClassValue[]) => {
   return twMerge(clsx(inputs));
 }
 
-export const generateRandomString = function (length: number) {
+const generateRandomString = (length: number) => {
   var text = "";
   var possible =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -15,3 +15,5 @@ export const generateRandomString = function (length: number) {
   }
   return text;
 };
+
+export { cn, generateRandomString };

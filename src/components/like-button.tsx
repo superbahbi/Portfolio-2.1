@@ -2,7 +2,7 @@
 
 import { likeAction } from "@/actions/like-action";
 import { Button } from "@/components/ui/button";
-import { ChevronUp, ThumbsUp } from "lucide-react";
+import { ThumbsUp } from "lucide-react";
 import { useOptimisticAction } from "next-safe-action/hooks";
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
   count: number;
 };
 
-export function LikeBook({ count, id }: Props) {
+const LikeBook = ({ count, id }: Props) => {
   const { execute, optimisticData } = useOptimisticAction<void, number>(
     likeAction,
     count,
@@ -32,3 +32,4 @@ export function LikeBook({ count, id }: Props) {
     </Button>
   );
 }
+export { LikeBook };

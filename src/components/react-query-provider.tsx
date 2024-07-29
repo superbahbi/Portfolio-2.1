@@ -11,4 +11,4 @@ const ReactQueryProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default ReactQueryProvider;
+export { ReactQueryProvider };

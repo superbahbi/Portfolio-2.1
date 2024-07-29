@@ -3,7 +3,7 @@ import { PointMaterial, Points } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { inSphere as randomInSphere } from "maath/random";
 import { useTheme } from "next-themes";
-import { use, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { type Mesh } from "three";
 
 const sphere = randomInSphere(new Float32Array(35000), { radius: 1 });

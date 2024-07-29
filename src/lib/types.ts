@@ -20,15 +20,22 @@ export interface TechStackItemProps {
     description: string;
 }
 
-export interface IProject {
+export interface Project {
     id: string;
     title: string;
     description: string;
-    technology: {
-        name: string;
-        icon: React.ReactNode;
-    }[];
+    technology: Technology[];
     code?: string;
     website_link: string;
     website_label: string;
+}
+export interface Technology {
+    name: string;
+    icon: React.ReactNode;
+}
+
+export interface TextEncryptedProps {
+    text: string;
+    interval?: number;
+    className?: string;
 }

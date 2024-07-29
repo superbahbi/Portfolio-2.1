@@ -1,32 +1,24 @@
 "use client";
 
 import clsx from "clsx";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 interface MeteorsProps {
   number?: number;
 }
 
-const generateMeteorStyles = (number: number): Array<React.CSSProperties> => {
-  return [...new Array(number)].map(() => {
-    const left = `${Math.floor(Math.random() * 100)}vw`;
-    return {
-      top: -5,
-      left: left,
-      animationDelay: `${Math.random() * 1 + 2}s`,
-      animationDuration: `${Math.floor(Math.random() * 8 + 2)}s`,
-    };
-  });
-};
+const generateMeteorStyle = (): React.CSSProperties => ({
+  top: -5,
+  left: `${Math.floor(Math.random() * 100)}vw`,
+  animationDelay: `${Math.random() * 1 + 2}s`,
+  animationDuration: `${Math.floor(Math.random() * 8 + 2)}s`,
+});
 
-const Meteors = ({ number = 20 }: MeteorsProps) => {
-  const [meteorStyles, setMeteorStyles] = useState<Array<React.CSSProperties>>(
-    [],
+const Meteors: React.FC<MeteorsProps> = ({ number = 20 }) => {
+  const meteorStyles = useMemo(
+    () => Array.from({ length: number }, generateMeteorStyle),
+    [number]
   );
-
-  useEffect(() => {
-    setMeteorStyles(generateMeteorStyles(number));
-  }, [number]);
 
   return (
     <>
@@ -34,7 +26,7 @@ const Meteors = ({ number = 20 }: MeteorsProps) => {
         <span
           key={idx}
           className={clsx(
-            "pointer-events-none absolute left-1/2 top-1/2 h-0.5 w-0.5 rotate-[290deg] animate-meteor rounded-[9999px] bg-neutral-600 shadow-[0_0_0_1px_#ffffff10]",
+            "pointer-events-none absolute left-1/2 top-1/2 h-0.5 w-0.5 rotate-[290deg] animate-meteor rounded-[9999px] bg-neutral-600 shadow-[0_0_0_1px_#ffffff10]"
           )}
           style={style}
         >
