@@ -152,7 +152,6 @@ const features = [
             </div>
         ),
     },
-
     {
         Icon: LucideIcons.BookOpen,
         name: "Currently Reading",
