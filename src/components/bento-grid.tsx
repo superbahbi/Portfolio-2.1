@@ -40,7 +40,7 @@ const BentoCard = ({
   <div
     key={name}
     className={cn(
-      "group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-xl",
+      "group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-xl pb-2",
       // light styles
       "bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
       // dark styles
@@ -60,16 +60,22 @@ const BentoCard = ({
         </Button>
         {right}
       </div>
-      {name && <TextEncrypted interval={50} text={name} />}
-
-      {description && (
-        <TextEncrypted
-          interval={100}
-          text={description}
-          className="text-sm text-muted-foreground"
-        />
-      )}
-
+      <div className="flex flex-col gap-2">
+        {name && (
+          <div className="h-6">
+            <TextEncrypted interval={50} text={name} />
+          </div>
+        )}
+        {description && (
+          <div className="h-10">
+            <TextEncrypted
+              interval={100}
+              text={description}
+              className="text-sm text-muted-foreground"
+            />
+          </div>
+        )}
+      </div>
       {cta && href && (
         <Button variant="outline" asChild size="sm">
           <a href={href}>

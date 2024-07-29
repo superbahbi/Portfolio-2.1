@@ -1,3 +1,5 @@
+import React, { Suspense } from "react";
+import Image from "next/image";
 import { BentoCard, BentoGrid } from "@/components/bento-grid";
 import { CardCarousel } from "@/components/card-carousel";
 import { Like } from "@/components/like-book";
@@ -5,79 +7,13 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { NowPlaying } from "@/components/now-playing";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import {
-  SiAngular,
-  SiAstro,
-  SiCss3,
-  SiExpo,
-  SiFirebase,
-  SiHtml5,
-  SiMysql,
-  SiNextdotjs,
-  SiNodedotjs,
-  SiPostgresql,
-  SiReact,
-  SiReactrouter,
-  SiSocketdotio,
-  SiSpotify,
-  SiStripe,
-  SiStyledcomponents,
-  SiSupabase,
-  SiTailwindcss,
-  SiTypescript,
-} from "@icons-pack/react-simple-icons";
+import * as Icons from "@icons-pack/react-simple-icons";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
-import {
-  AtSign,
-  BookOpen,
-  Briefcase,
-  Calendar,
-  File,
-  FileTextIcon,
-  Github,
-  Link,
-  MoreHorizontal,
-  Music,
-  ProjectorIcon,
-  Terminal,
-  ThumbsUp,
-} from "lucide-react";
-import Image from "next/image";
-import { Suspense } from "react";
+import * as LucideIcons from "lucide-react";
+import { ButtonLinkProps, IProject, JobItemProps, TechStackItemProps } from "@/lib/types";
 
-const buttonData = [
-  {
-    href: "https://dub.sh/rkrs",
-    icon: File,
-    label: "Resume",
-  },
-  {
-    href: "mailto:superbahbi@gmail.com",
-    icon: AtSign,
-    label: "Email",
-  },
-  {
-    href: "https://git.new/rkgit",
-    icon: Github,
-    label: "Github",
-  },
-  {
-    href: "https://dub.sh/rkcal",
-    icon: Calendar,
-    label: "Book a Meeting",
-  },
-];
-
-const ButtonLink = ({
-  href,
-  icon: Icon,
-  label,
-}: {
-  href: string;
-  icon: any;
-  label: string;
-}) => (
-  <a href={href} target="_blank" className="flex">
+const ButtonLink: React.FC<ButtonLinkProps> = ({ href, icon: Icon, label }) => (
+  <a href={href} target="_blank" rel="noopener noreferrer" className="flex">
     <Button className="flex w-full gap-1" variant="outline" size="sm">
       <Icon className="size-4" />
       <span className="text-sm">{label}</span>
@@ -85,30 +21,11 @@ const ButtonLink = ({
   </a>
 );
 
-export interface IProject {
-  id: string;
-  title: string;
-  description: string;
-  technology: {
-    name: string;
-    icon: React.ReactNode;
-  }[];
-  code?: string;
-  website_link: string;
-  website_label: string;
-}
-
-const JobItem = ({
-  job,
-}: {
-  job: { role: string; company: string; period: string; color: string };
-}) => (
+const JobItem: React.FC<JobItemProps> = ({ job }) => (
   <div className="grid grid-cols-2 sm:grid-cols-3 sm:items-center">
     <div className="order-1 col-span-1 flex items-center gap-2 sm:order-none">
       <span className={`size-2 rounded-full ${job.color}`}></span>
-      <span className="overflow-hidden truncate whitespace-nowrap">
-        {job.role}
-      </span>
+      <span className="overflow-hidden truncate whitespace-nowrap">{job.role}</span>
     </div>
     <div className="order-3 col-span-2 flex justify-normal pl-4 sm:order-none sm:col-span-1 sm:pl-0">
       {job.company}
@@ -119,15 +36,7 @@ const JobItem = ({
   </div>
 );
 
-const TechStackItem = ({
-  Icon,
-  name,
-  description,
-}: {
-  Icon: any;
-  name: string;
-  description: string;
-}) => (
+const TechStackItem: React.FC<TechStackItemProps> = ({ Icon, name, description }) => (
   <div className="flex gap-2">
     <div className="flex rounded-md border border-dashed border-border bg-transparent p-3">
       <Icon className="size-5" />
@@ -141,16 +50,23 @@ const TechStackItem = ({
   </div>
 );
 
+const buttonData: ButtonLinkProps[] = [
+  { href: "https://dub.sh/rkrs", icon: LucideIcons.File, label: "Resume" },
+  { href: "mailto:superbahbi@gmail.com", icon: LucideIcons.AtSign, label: "Email" },
+  { href: "https://git.new/rkgit", icon: LucideIcons.Github, label: "Github" },
+  { href: "https://dub.sh/rkcal", icon: LucideIcons.Calendar, label: "Book a Meeting" },
+]
+
 const projects: IProject[] = [
   {
     id: "juke",
     title: "Juke",
     technology: [
-      { name: "NextJs", icon: <SiNextdotjs size={16} /> },
-      { name: "Typescript", icon: <SiTypescript size={16} /> },
-      { name: "Tailwindcss", icon: <SiTailwindcss size={16} /> },
-      { name: "Supabase", icon: <SiSupabase size={16} /> },
-      { name: "Expo", icon: <SiExpo size={16} /> },
+      { name: "NextJs", icon: <Icons.SiNextdotjs size={16} /> },
+      { name: "Typescript", icon: <Icons.SiTypescript size={16} /> },
+      { name: "Tailwindcss", icon: <Icons.SiTailwindcss size={16} /> },
+      { name: "Supabase", icon: <Icons.SiSupabase size={16} /> },
+      { name: "Expo", icon: <Icons.SiExpo size={16} /> },
     ],
     description:
       "Juke is a music social app built for venues, artists, and fans. It features a sleek and modern design, with a focus on user experience and ease of use. Juke is built using Expo, which allows for cross-platform compatibility and seamless integration with the Apple App Store and Google Play Store. Developed using NextJs, Typescript, Tailwindcss, and Supabase.",
@@ -161,10 +77,10 @@ const projects: IProject[] = [
     id: "myere",
     title: "Myere",
     technology: [
-      { name: "NextJs", icon: <SiNextdotjs size={16} /> },
-      { name: "Typescript", icon: <SiTypescript size={16} /> },
-      { name: "Tailwindcss", icon: <SiTailwindcss size={16} /> },
-      { name: "Supabase", icon: <SiSupabase size={16} /> },
+      { name: "NextJs", icon: <Icons.SiNextdotjs size={16} /> },
+      { name: "Typescript", icon: <Icons.SiTypescript size={16} /> },
+      { name: "Tailwindcss", icon: <Icons.SiTailwindcss size={16} /> },
+      { name: "Supabase", icon: <Icons.SiSupabase size={16} /> },
     ],
     description:
       "Myere leverages advanced AI to scrutinize your subscriptions and recurring bills, uncovering potential savings and negotiating better rates. Streamline your financial management and enhance your savings with Myere. Developed using NextJs, Typescript, Tailwindcss, and Supabase.",
@@ -175,9 +91,9 @@ const projects: IProject[] = [
     id: "cadenarg",
     title: "Cadena Restaurant Group",
     technology: [
-      { name: "NextJs", icon: <SiNextdotjs size={16} /> },
-      { name: "Typescript", icon: <SiTypescript size={16} /> },
-      { name: "Tailwindcss", icon: <SiTailwindcss size={16} /> },
+      { name: "NextJs", icon: <Icons.SiNextdotjs size={16} /> },
+      { name: "Typescript", icon: <Icons.SiTypescript size={16} /> },
+      { name: "Tailwindcss", icon: <Icons.SiTailwindcss size={16} /> },
     ],
     description:
       "Cadena Restaurant Group provides comprehensive insights into your business operations and automates routine tasks, allowing you to focus on your core passions. Developed using NextJs, Typescript, and Tailwindcss.",
@@ -188,10 +104,10 @@ const projects: IProject[] = [
     id: "yeschefmarketplace",
     title: "YesChef Marketplace",
     technology: [
-      { name: "NextJs", icon: <SiNextdotjs size={16} /> },
-      { name: "Typescript", icon: <SiTypescript size={16} /> },
-      { name: "Tailwindcss", icon: <SiTailwindcss size={16} /> },
-      { name: "Supabase", icon: <SiSupabase size={16} /> },
+      { name: "NextJs", icon: <Icons.SiNextdotjs size={16} /> },
+      { name: "Typescript", icon: <Icons.SiTypescript size={16} /> },
+      { name: "Tailwindcss", icon: <Icons.SiTailwindcss size={16} /> },
+      { name: "Supabase", icon: <Icons.SiSupabase size={16} /> },
     ],
     description:
       "YesChef Marketplace is a curated collection of top-rated restaurant software from around the web. Discover the best tools for your restaurant, cafe, or bar. Developed using NextJs, Typescript, Tailwindcss, and Supabase.",
@@ -202,9 +118,9 @@ const projects: IProject[] = [
     id: "getrds",
     title: "Cadena Restaurant Group",
     technology: [
-      { name: "Astro", icon: <SiAstro size={16} /> },
-      { name: "Typescript", icon: <SiTypescript size={16} /> },
-      { name: "Tailwindcss", icon: <SiTailwindcss size={16} /> },
+      { name: "Astro", icon: <Icons.SiAstro size={16} /> },
+      { name: "Typescript", icon: <Icons.SiTypescript size={16} /> },
+      { name: "Tailwindcss", icon: <Icons.SiTailwindcss size={16} /> },
     ],
     description:
       "Transforming eateries with data-driven insights to optimize operations and enhance customer experiences. Developed using Astro, Typescript, and Tailwindcss.",
@@ -215,9 +131,9 @@ const projects: IProject[] = [
     id: "yeschef",
     title: "YesChef Productions",
     technology: [
-      { name: "Nextjs", icon: <SiNextdotjs size={16} /> },
-      { name: "Typescript", icon: <SiTypescript size={16} /> },
-      { name: "Tailwindcss", icon: <SiTailwindcss size={16} /> },
+      { name: "Nextjs", icon: <Icons.SiNextdotjs size={16} /> },
+      { name: "Typescript", icon: <Icons.SiTypescript size={16} /> },
+      { name: "Tailwindcss", icon: <Icons.SiTailwindcss size={16} /> },
     ],
     description:
       "Explore the culinary world with YesChef Productions. Our podcasts seamlessly blend storytelling, industry insights, and inspiring kitchen tales. Immerse yourself in the flavors behind the scenes, crafted using Nextjs, Typescript, and Tailwindcss.",
@@ -228,9 +144,9 @@ const projects: IProject[] = [
     id: "cheddrsuite",
     title: "CheddrSuite",
     technology: [
-      { name: "Nextjs", icon: <SiNextdotjs size={16} /> },
-      { name: "Typescript", icon: <SiTypescript size={16} /> },
-      { name: "Tailwindcss", icon: <SiTailwindcss size={16} /> },
+      { name: "Nextjs", icon: <Icons.SiNextdotjs size={16} /> },
+      { name: "Typescript", icon: <Icons.SiTypescript size={16} /> },
+      { name: "Tailwindcss", icon: <Icons.SiTailwindcss size={16} /> },
     ],
     description:
       "CheddrSuite is a comprehensive software solution for restaurant and food retail management. It simplifies your business operations by eliminating paper clutter, reducing the need for multiple apps, and providing access from anywhere at any time. Developed using Nextjs, Typescript, and Tailwindcss.",
@@ -241,11 +157,11 @@ const projects: IProject[] = [
     id: "twitter-clone-web",
     title: "Twitter Clone",
     technology: [
-      { name: "Reactjs", icon: <SiReact size={16} /> },
-      { name: "Typescript", icon: <SiTypescript size={16} /> },
-      { name: "React Router", icon: <SiReactrouter size={16} /> },
-      { name: "Socket.io", icon: <SiSocketdotio size={16} /> },
-      { name: "Styled Components", icon: <SiStyledcomponents size={16} /> },
+      { name: "Reactjs", icon: <Icons.SiReact size={16} /> },
+      { name: "Typescript", icon: <Icons.SiTypescript size={16} /> },
+      { name: "React Router", icon: <Icons.SiReactrouter size={16} /> },
+      { name: "Socket.io", icon: <Icons.SiSocketdotio size={16} /> },
+      { name: "Styled Components", icon: <Icons.SiStyledcomponents size={16} /> },
     ],
     description:
       "This Twitter clone is built using the ReactJS framework, Typescript, and various other modern web technologies. It features real-time updates with Socket.io, and utilizes MongoDB for the database and Cloudinary for media storage. Styled Components ensures a polished and responsive design.",
@@ -257,9 +173,9 @@ const projects: IProject[] = [
     id: "wordle",
     title: "Wordle",
     technology: [
-      { name: "Reactjs", icon: <SiReact size={16} /> },
-      { name: "CSS3", icon: <SiCss3 size={16} /> },
-      { name: "HTML5", icon: <SiHtml5 size={16} /> },
+      { name: "Reactjs", icon: <Icons.SiReact size={16} /> },
+      { name: "CSS3", icon: <Icons.SiCss3 size={16} /> },
+      { name: "HTML5", icon: <Icons.SiHtml5 size={16} /> },
     ],
     description:
       "A Wordle clone built using the React framework, offering an engaging and interactive word-guessing experience. Designed with modern web technologies for a smooth and responsive gameplay.",
@@ -271,9 +187,9 @@ const projects: IProject[] = [
     id: "memory-game",
     title: "Memory Game",
     technology: [
-      { name: "Reactjs", icon: <SiReact size={16} /> },
-      { name: "CSS3", icon: <SiCss3 size={16} /> },
-      { name: "HTML5", icon: <SiHtml5 size={16} /> },
+      { name: "Reactjs", icon: <Icons.SiReact size={16} /> },
+      { name: "CSS3", icon: <Icons.SiCss3 size={16} /> },
+      { name: "HTML5", icon: <Icons.SiHtml5 size={16} /> },
     ],
     description:
       "A fun and engaging memory game built with ReactJS. Test your memory by matching pairs to win the game, all designed with modern web technologies for a seamless experience.",
@@ -285,10 +201,10 @@ const projects: IProject[] = [
     id: "tictactoe-online",
     title: "Tic Tac Toe Online",
     technology: [
-      { name: "Reactjs", icon: <SiReact size={16} /> },
-      { name: "CSS3", icon: <SiCss3 size={16} /> },
-      { name: "HTML5", icon: <SiHtml5 size={16} /> },
-      { name: "Socket.io", icon: <SiSocketdotio size={16} /> },
+      { name: "Reactjs", icon: <Icons.SiReact size={16} /> },
+      { name: "CSS3", icon: <Icons.SiCss3 size={16} /> },
+      { name: "HTML5", icon: <Icons.SiHtml5 size={16} /> },
+      { name: "Socket.io", icon: <Icons.SiSocketdotio size={16} /> },
     ],
     description:
       "An online Tic Tac Toe game built with ReactJS and Socket.io. Challenge your friends and enjoy seamless, real-time gameplay.",
@@ -300,10 +216,10 @@ const projects: IProject[] = [
     id: "discoverify",
     title: "Discoverify",
     technology: [
-      { name: "Reactjs", icon: <SiReact size={16} /> },
-      { name: "CSS3", icon: <SiCss3 size={16} /> },
-      { name: "HTML5", icon: <SiHtml5 size={16} /> },
-      { name: "Spotify API", icon: <SiSpotify size={16} /> },
+      { name: "Reactjs", icon: <Icons.SiReact size={16} /> },
+      { name: "CSS3", icon: <Icons.SiCss3 size={16} /> },
+      { name: "HTML5", icon: <Icons.SiHtml5 size={16} /> },
+      { name: "Spotify API", icon: <Icons.SiSpotify size={16} /> },
     ],
     description:
       "Discoverify is a Spotify app built using the React framework. Explore and enjoy your favorite music with a smooth and intuitive interface powered by the Spotify API.",
@@ -315,10 +231,10 @@ const projects: IProject[] = [
     id: "corkify",
     title: "Corkify",
     technology: [
-      { name: "React Native", icon: <SiReact size={16} /> },
-      { name: "Expo", icon: <SiExpo size={16} /> },
-      { name: "Firebase", icon: <SiFirebase size={16} /> },
-      { name: "Stripe", icon: <SiStripe size={16} /> },
+      { name: "React Native", icon: <Icons.SiReact size={16} /> },
+      { name: "Expo", icon: <Icons.SiExpo size={16} /> },
+      { name: "Firebase", icon: <Icons.SiFirebase size={16} /> },
+      { name: "Stripe", icon: <Icons.SiStripe size={16} /> },
     ],
     description:
       "Corkify is a wine flash store built with the React Native framework. It leverages Firebase for authentication, real-time database, and storage, along with Stripe for secure payment processing.",
@@ -330,9 +246,9 @@ const projects: IProject[] = [
     id: "portfolio",
     title: "Portfolio",
     technology: [
-      { name: "NextJs", icon: <SiNextdotjs size={16} /> },
-      { name: "Typescript", icon: <SiTypescript size={16} /> },
-      { name: "Tailwindcss", icon: <SiTailwindcss size={16} /> },
+      { name: "NextJs", icon: <Icons.SiNextdotjs size={16} /> },
+      { name: "Typescript", icon: <Icons.SiTypescript size={16} /> },
+      { name: "Tailwindcss", icon: <Icons.SiTailwindcss size={16} /> },
     ],
     description:
       "This is my personal portfolio, built using the Next.js framework with TypeScript and styled with Tailwind CSS. Explore my projects, skills, and professional journey.",
@@ -342,9 +258,10 @@ const projects: IProject[] = [
   },
 ];
 
+;
 const features = [
   {
-    Icon: Terminal,
+    Icon: LucideIcons.Terminal,
     name: "Robert Kugler",
     description: `Full Stack Software Engineer, San Luis Obispo, CA.`,
     className: "col-span-3 md:col-span-1 flex justify-between",
@@ -366,7 +283,7 @@ const features = [
     ),
   },
   {
-    Icon: FileTextIcon,
+    Icon: LucideIcons.FileTextIcon,
     name: "About Me",
     description: "Learn more about me.",
     className: "col-span-3 md:col-span-2",
@@ -408,7 +325,7 @@ const features = [
     ),
   },
   {
-    Icon: Briefcase,
+    Icon: LucideIcons.Briefcase,
     name: "Experience",
     description: "I have experience in a variety of fields.",
     className: "col-span-3 lg:col-span-2",
@@ -468,7 +385,7 @@ const features = [
     ),
   },
   {
-    Icon: Link,
+    Icon: LucideIcons.Link,
     name: "Link",
     description: "Quick access to my resume, email, and GitHub profiles.",
     className: "col-span-3 lg:col-span-1",
@@ -485,7 +402,7 @@ const features = [
   },
 
   {
-    Icon: BookOpen,
+    Icon: LucideIcons.BookOpen,
     name: "Currently Reading",
     description: "Books I am currently reading.",
     className: "col-span-3 md:col-span-1",
@@ -517,7 +434,7 @@ const features = [
     ),
   },
   {
-    Icon: ProjectorIcon,
+    Icon: LucideIcons.ProjectorIcon,
     name: "Projects",
     description: "Projects I have worked on.",
     className: "col-span-3 md:col-span-2",
@@ -530,7 +447,7 @@ const features = [
     ),
   },
   {
-    Icon: HamburgerMenuIcon,
+    Icon: LucideIcons.Menu,
     name: "Tech Stack",
     description: "Current stack I am working with.",
     className: "col-span-3 lg:col-span-2",
@@ -538,47 +455,47 @@ const features = [
       <div className="px-4 py-4 sm:px-6">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <TechStackItem
-            Icon={SiNextdotjs}
+            Icon={Icons.SiNextdotjs}
             name="Next.js"
             description="Frontend"
           />
           <TechStackItem
-            Icon={SiAngular}
+            Icon={Icons.SiAngular}
             name="Angular"
             description="Frontend"
           />
-          <TechStackItem Icon={SiExpo} name="Expo" description="Mobile" />
+          <TechStackItem Icon={Icons.SiExpo} name="Expo" description="Mobile" />
           <TechStackItem
-            Icon={SiNodedotjs}
+            Icon={Icons.SiNodedotjs}
             name="Node.js"
             description="Backend"
           />
           <TechStackItem
-            Icon={SiTailwindcss}
+            Icon={Icons.SiTailwindcss}
             name="Tailwind"
             description="CSS"
           />
-          <TechStackItem Icon={SiMysql} name="Mysql" description="Database" />
+          <TechStackItem Icon={Icons.SiMysql} name="Mysql" description="Database" />
           <TechStackItem
-            Icon={SiPostgresql}
+            Icon={Icons.SiPostgresql}
             name="Postgres"
             description="Database"
           />
           <TechStackItem
-            Icon={SiSupabase}
+            Icon={Icons.SiSupabase}
             name="Supabase"
             description="Database and Auth"
           />
-          <TechStackItem Icon={SiSpotify} name="Spotify" description="Music" />
-          <TechStackItem Icon={SiStripe} name="Stripe" description="Payments" />
+          <TechStackItem Icon={Icons.SiSpotify} name="Spotify" description="Music" />
+          <TechStackItem Icon={Icons.SiStripe} name="Stripe" description="Payments" />
           <TechStackItem
-            Icon={SiSocketdotio}
+            Icon={Icons.SiSocketdotio}
             name="Socket.io"
             description="Realtime"
           />
 
           <TechStackItem
-            Icon={MoreHorizontal}
+            Icon={LucideIcons.MoreHorizontal}
             name=""
             description="and many more..."
           />
@@ -587,7 +504,7 @@ const features = [
     ),
   },
   {
-    Icon: Music,
+    Icon: LucideIcons.Music,
     name: "Now Playing",
     description: "What I am currently listening to.",
     className: "col-span-3 lg:col-span-1",
@@ -601,7 +518,7 @@ const features = [
   },
 ];
 
-export default function Page() {
+const Page: React.FC = () => {
   return (
     <main className="col-span-1 lg:col-span-3">
       <BentoGrid>
@@ -611,4 +528,6 @@ export default function Page() {
       </BentoGrid>
     </main>
   );
-}
+};
+
+export default Page;
