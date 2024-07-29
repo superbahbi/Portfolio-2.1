@@ -25,7 +25,7 @@ const buttonData: ButtonLinkProps[] = [
 const features = [
     {
         Icon: LucideIcons.Terminal,
-        name: "Robert Kugler",
+        name: "Robert (Bobby Lee) Kugler",
         description: `Full Stack Software Engineer, San Luis Obispo, CA.`,
         className: "col-span-3 md:col-span-1 flex justify-between",
         background: (
