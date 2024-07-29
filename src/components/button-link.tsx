@@ -9,7 +9,7 @@ const ButtonLink = ({ href, icon: Icon, label }: ButtonLinkProps) => (
         rel="noopener noreferrer"
         className="flex w-full"
     >
-        <Button variant="outline" size="sm" className="flex gap-1">
+        <Button variant="outline" size="sm" className="flex gap-1 w-full">
             {Icon && <Icon className="size-4" />}
             <span className="text-sm">{label}</span>
         </Button>

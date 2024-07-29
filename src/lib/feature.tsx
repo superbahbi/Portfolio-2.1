@@ -49,7 +49,7 @@ const features = [
         Icon: LucideIcons.FileTextIcon,
         name: "About Me",
         description: "Learn more about me.",
-        className: "col-span-3 md:col-span-2",
+        className: "col-span-3 md:col-span-2 pb-2",
         background: (
             <div className="flex flex-col gap-2 px-4 py-4 sm:px-6">
                 <p className="text-justify tracking-tighter  sm:text-left">
@@ -60,18 +60,7 @@ const features = [
                     repositories, where I consistently update my latest projects.
                 </p>
                 <p className="text-justify tracking-tighter sm:text-left">
-                    I am currently developing Myere, a finance management tool designed to
-                    simplify budgeting and expense tracking. Myere automates budgeting
-                    tasks, manages subscriptions, provides automated money-saving
-                    insights, and features an effortless setup process for streamlined
-                    savings. With support for over 100 bank integrations for importing
-                    financial documents and a calendar view for transactions, Myere is
-                    dedicated to making budgeting easy and stress-free. Learn more and
-                    join our waitlist on the{" "}
-                    <a href="https://myeremoney.com" className="underline">
-                        Myere website
-                    </a>
-                    .
+                    I am currently developing Juke, a platform that connects artists and venues, offering features and benefits for users, performers, and venues. Artists can manage their fan base and venue connections, venues can track potential talent, and fans can follow their favorite artists and discover new venues.
                 </p>
                 <p className="text-justify tracking-tighter sm:text-left">
                     As a dedicated software engineering professional, I strive to leverage
@@ -91,7 +80,7 @@ const features = [
         Icon: LucideIcons.Briefcase,
         name: "Experience",
         description: "I have experience in a variety of fields.",
-        className: "col-span-3 lg:col-span-2",
+        className: "col-span-3 lg:col-span-2 pb-2",
         background: (
             <div className="px-4 py-4 sm:px-6">
                 <div className="w-full text-sm tracking-tighter">
@@ -151,7 +140,7 @@ const features = [
         Icon: LucideIcons.Link,
         name: "Link",
         description: "Quick access to my resume, email, and GitHub profiles.",
-        className: "col-span-3 lg:col-span-1",
+        className: "col-span-3 lg:col-span-1 pb-2",
 
         background: (
             <div className="px-4 py-4 sm:px-6">
@@ -168,7 +157,7 @@ const features = [
         Icon: LucideIcons.BookOpen,
         name: "Currently Reading",
         description: "Books I am currently reading.",
-        className: "col-span-3 md:col-span-1",
+        className: "col-span-3 md:col-span-1 pb-2",
         background: (
             <div className="px-4 py-4 sm:px-6">
                 <h3 className="text-left tracking-tighter">Philanthropic Wanderlust</h3>
@@ -200,7 +189,7 @@ const features = [
         Icon: LucideIcons.ProjectorIcon,
         name: "Projects",
         description: "Projects I have worked on.",
-        className: "col-span-3 md:col-span-2",
+        className: "col-span-3 md:col-span-2 pb-2",
         background: (
             <div className="px-4 py-4 sm:px-6">
                 <div className="flex items-center justify-center">
@@ -213,7 +202,7 @@ const features = [
         Icon: LucideIcons.Menu,
         name: "Tech Stack",
         description: "Current stack I am working with.",
-        className: "col-span-3 lg:col-span-2",
+        className: "col-span-3 lg:col-span-2 pb-2",
         background: (
             <div className="px-4 py-4 sm:px-6">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -270,7 +259,7 @@ const features = [
         Icon: LucideIcons.Music,
         name: "Now Playing",
         description: "What I am currently listening to.",
-        className: "col-span-3 lg:col-span-1",
+        className: "col-span-3 lg:col-span-1 pb-2",
         background: (
             <div className="px-4 py-4 sm:px-6">
                 <Suspense fallback={<div>Loading...</div>}>
