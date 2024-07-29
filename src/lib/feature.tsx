@@ -16,8 +16,8 @@ import { Suspense } from "react";
 
 const buttonData: ButtonLinkProps[] = [
     { href: "https://dub.sh/rkrs", icon: LucideIcons.File, label: "Resume" },
-    { href: "mailto:superbahbi@gmail.com", icon: LucideIcons.AtSign, label: "Email" },
-    { href: "https://git.new/rkgit", icon: LucideIcons.Github, label: "Github" },
+    { href: "https://dub.sh/rklinkedin", icon: Icons.SiLinkedin, label: "LinkedIn" },
+    { href: "https://git.new/rkgit", icon: Icons.SiGithub, label: "Github" },
     { href: "https://dub.sh/rkcal", icon: LucideIcons.Calendar, label: "Book a Meeting" },
 ]
 
