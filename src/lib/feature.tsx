@@ -159,9 +159,9 @@ const features = [
         className: "col-span-3 md:col-span-1 pb-2",
         background: (
             <div className="px-4 py-4 sm:px-6">
-                <h3 className="text-left tracking-tighter">Philanthropic Wanderlust</h3>
+                <h3 className="text-left tracking-tighter">The Psychology of Money</h3>
                 <span className="text-left text-sm tracking-tighter">
-                    by: Danell Lynn
+                    by: Morgan Housel
                 </span>
                 <div className="relative py-2">
                     <div className="absolute bottom-3 right-1 z-10">
@@ -170,13 +170,13 @@ const features = [
                                 <Skeleton className="h-8 w-16 flex-col items-center px-6" />
                             }
                         >
-                            <Like id="book:philanthropic-wanderlust" />
+                            <Like id="book:the-psychology-of-money" />
                         </Suspense>
                     </div>
-                    <a href="https://www.goodreads.com/book/show/27393058-philanthropic-wanderlust">
+                    <a href="https://www.goodreads.com/book/show/41881472-the-psychology-of-money">
                         <img
-                            src="/pw_by_dl.jpg"
-                            alt="Philanthropic Wanderlust"
+                            src="/pm_by_mh.jpg"
+                            alt="The Psychology of Money"
                             className="rounded-md grayscale [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)]"
                         />
                     </a>
