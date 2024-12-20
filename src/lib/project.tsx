@@ -60,7 +60,7 @@ const projects: Project[] = [
   },
   {
     id: "getrds",
-    title: "Cadena Restaurant Group",
+    title: "RD Solutions, Inc.",
     technology: [
       { name: "Astro", icon: <Icons.SiAstro size={16} /> },
       { name: "Typescript", icon: <Icons.SiTypescript size={16} /> },
