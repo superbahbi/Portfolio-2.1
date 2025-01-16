@@ -5,16 +5,34 @@ const projects: Project[] = [
   {
     id: "juke",
     title: "Juke",
+    tags: ["mobile app"],
+    technology: [
+      { name: "Expo", icon: <Icons.SiExpo size={16} /> },
+      { name: "Typescript", icon: <Icons.SiTypescript size={16} /> },
+      { name: "NativeWind", icon: <Icons.SiTailwindcss size={16} /> },
+      { name: "Supabase", icon: <Icons.SiSupabase size={16} /> },
+      { name: "Socket.io", icon: <Icons.SiSocketdotio size={16} /> },
+      { name: "PostHog", icon: <Icons.SiPosthog size={16} /> },
+      { name: "Sentry", icon: <Icons.SiSentry size={16} /> },
+    ],
+    description:
+      "Juke is a social music discovery app that connects venues, artists, and music fans. The mobile app features real-time song requests, live venue music feeds, and artist discovery. Built with Expo and React Native for cross-platform compatibility, it uses Socket.io for real-time features, PostHog for analytics, and Sentry for monitoring.",
+    website_link:
+      "https://apps.apple.com/us/app/juke-discover-enjoy-connect/id6670796137",
+    website_label: "App",
+  },
+  {
+    id: "juke",
+    title: "Juke",
     tags: ["website"],
     technology: [
       { name: "NextJs", icon: <Icons.SiNextdotjs size={16} /> },
       { name: "Typescript", icon: <Icons.SiTypescript size={16} /> },
       { name: "Tailwindcss", icon: <Icons.SiTailwindcss size={16} /> },
       { name: "Supabase", icon: <Icons.SiSupabase size={16} /> },
-      { name: "Expo", icon: <Icons.SiExpo size={16} /> },
     ],
     description:
-      "Juke is a music social app built for venues, artists, and fans. It features a sleek and modern design, with a focus on user experience and ease of use. Juke is built using Expo, which allows for cross-platform compatibility and seamless integration with the Apple App Store and Google Play Store. Developed using NextJs, Typescript, Tailwindcss, and Supabase.",
+      "The marketing website for Juke showcases the app's features and benefits for venues, artists, and music fans. It provides information about the platform, download links, and resources for potential users. The website is optimized for performance and SEO using Next.js and modern web technologies.",
     website_link: "https://www.joinjuke.app",
     website_label: "Website",
   },
