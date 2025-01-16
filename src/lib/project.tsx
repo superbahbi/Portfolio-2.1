@@ -5,6 +5,7 @@ const projects: Project[] = [
   {
     id: "juke",
     title: "Juke",
+    tags: ["website"],
     technology: [
       { name: "NextJs", icon: <Icons.SiNextdotjs size={16} /> },
       { name: "Typescript", icon: <Icons.SiTypescript size={16} /> },
@@ -105,7 +106,10 @@ const projects: Project[] = [
       { name: "Typescript", icon: <Icons.SiTypescript size={16} /> },
       { name: "React Router", icon: <Icons.SiReactrouter size={16} /> },
       { name: "Socket.io", icon: <Icons.SiSocketdotio size={16} /> },
-      { name: "Styled Components", icon: <Icons.SiStyledcomponents size={16} /> },
+      {
+        name: "Styled Components",
+        icon: <Icons.SiStyledcomponents size={16} />,
+      },
     ],
     description:
       "This Twitter clone is built using the ReactJS framework, Typescript, and various other modern web technologies. It features real-time updates with Socket.io, and utilizes MongoDB for the database and Cloudinary for media storage. Styled Components ensures a polished and responsive design.",
