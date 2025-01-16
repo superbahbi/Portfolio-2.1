@@ -15,7 +15,7 @@ import {
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle
+  CardTitle,
 } from "./ui/card";
 interface CardCarouselProps {
   projects: Project[];
@@ -102,7 +102,14 @@ const CardCarousel = ({ projects }: CardCarouselProps) => {
                   <LinkPreview url={project.website_link} className="p-0.5" />
                 </div>
                 <CardHeader>
-                  <CardTitle>{project.title}</CardTitle>
+                  <CardTitle className="flex flex-row gap-1">
+                    {project.title}
+                    {project.tags && (
+                      <span className="text-xs font-light text-muted-foreground">
+                        ({project.tags?.join(", ")})
+                      </span>
+                    )}
+                  </CardTitle>
                   <CardDescription className="h-26 text-xs md:h-16 lg:h-14">
                     {project.description}
                   </CardDescription>
@@ -145,8 +152,9 @@ const CardCarousel = ({ projects }: CardCarouselProps) => {
           <button
             onClick={() => onDotButtonClick(index)}
             key={index}
-            className={`mx-1 inline-block h-2 w-2 rounded-full ${index === current - 1 ? "bg-primary" : "bg-muted-foreground"
-              }`}
+            className={`mx-1 inline-block h-2 w-2 rounded-full ${
+              index === current - 1 ? "bg-primary" : "bg-muted-foreground"
+            }`}
           />
         ))}
       </div>
