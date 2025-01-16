@@ -9,9 +9,9 @@ type LinkPreviewProps = {
   height?: number;
   quality?: number;
 } & (
-    | { isStatic: true; imageSrc: string }
-    | { isStatic?: false; imageSrc?: never }
-  );
+  | { isStatic: true; imageSrc: string }
+  | { isStatic?: false; imageSrc?: never }
+);
 
 const LinkPreview = ({
   url,
@@ -31,7 +31,7 @@ const LinkPreview = ({
       embed: "screenshot.url",
       colorScheme: "dark",
       "viewport.isMobile": true,
-      "viewport.deviceScaleFactor": 1,
+      "viewport.deviceScaleFactor": 0.5,
       "viewport.width": width * 3,
       "viewport.height": height * 3,
     });
