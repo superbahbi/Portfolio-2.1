@@ -118,7 +118,7 @@ const features = [
                 role: "Technical Producer",
                 company: "YesChef Production",
                 period: "Apr '24 - Jan '25",
-                color: "bg-green-400",
+                color: "bg-red-400",
               },
               {
                 role: "Cellar Master",
