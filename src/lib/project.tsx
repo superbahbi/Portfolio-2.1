@@ -3,6 +3,41 @@ import * as Icons from "@icons-pack/react-simple-icons";
 
 const projects: Project[] = [
   {
+    id: "mugai",
+    title: "Mugai",
+    tags: ["mobile app"],
+    technology: [
+      { name: "Expo", icon: <Icons.SiExpo size={16} /> },
+      { name: "Typescript", icon: <Icons.SiTypescript size={16} /> },
+      { name: "Supabase", icon: <Icons.SiSupabase size={16} /> },
+      { name: "OpenAI", icon: <Icons.SiOpenai size={16} /> },
+      { name: "Socket.io", icon: <Icons.SiSocketdotio size={16} /> },
+      { name: "PostHog", icon: <Icons.SiPosthog size={16} /> },
+      { name: "Sentry", icon: <Icons.SiSentry size={16} /> },
+    ],
+    description:
+      "Mugai blends advanced AI with the wisdom of mindfulness to create personalized meditation experiences tailored to your needs. Whether you seek stress relief, improved focus, or better sleep, Mugai is your trusted companion on the journey to a calmer, more centered you.",
+    website_link: "https://www.mindfulwithmugai.com/",
+    website_label: "Website",
+  },
+  {
+    id: "chatstars",
+    title: "ChatStars AI",
+    tags: ["mobile app"],
+    technology: [
+      { name: "Expo", icon: <Icons.SiExpo size={16} /> },
+      { name: "Typescript", icon: <Icons.SiTypescript size={16} /> },
+      { name: "Supabase", icon: <Icons.SiSupabase size={16} /> },
+      { name: "Gemini", icon: <Icons.SiGooglegemini size={16} /> },
+      { name: "PostHog", icon: <Icons.SiPosthog size={16} /> },
+      { name: "Sentry", icon: <Icons.SiSentry size={16} /> },
+    ],
+    description:
+      "ChatStars AI is a mobile app that allows you to chat with AI. It uses Gemini from Google to generate responses.",
+    website_link: "https://www.chatstars.ai/",
+    website_label: "Website",
+  },
+  {
     id: "juke",
     title: "Juke",
     tags: ["mobile app"],
