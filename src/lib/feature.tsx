@@ -112,7 +112,7 @@ const features = [
                 role: "Cofounder",
                 company: "Juke",
                 period: "Jul '24 - Feb '25",
-                color: "bg-green-400",
+                color: "bg-red-400",
               },
               {
                 role: "Technical Producer",
