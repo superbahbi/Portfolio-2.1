@@ -66,11 +66,11 @@ const features = [
           repositories, where I consistently update my latest projects.
         </p>
         <p className="text-justify tracking-tighter sm:text-left">
-          I am currently developing Juke, a platform that connects artists and
-          venues, offering features and benefits for users, performers, and
-          venues. Artists can manage their fan base and venue connections,
-          venues can track potential talent, and fans can follow their favorite
-          artists and discover new venues.
+          Currently, I&apos;m channeling my expertise into Mugai, an AI-powered
+          meditation app designed to provide personalized mindfulness
+          experiences. I&apos;m passionate about leveraging technology to
+          empower individuals to cultivate mindfulness and improve their overall
+          well-being through tailored meditation journeys.
         </p>
         <p className="text-justify tracking-tighter sm:text-left">
           As a dedicated software engineering professional, I strive to leverage
