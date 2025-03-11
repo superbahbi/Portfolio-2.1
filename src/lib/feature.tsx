@@ -96,12 +96,6 @@ const features = [
         <div className="w-full text-sm tracking-tighter">
           <div className="flex flex-col gap-2 sm:gap-1">
             {[
-              {
-                role: "Cofounder",
-                company: "Juke",
-                period: "July '24 - Present",
-                color: "bg-green-400",
-              },
               // {
               //   role: "Founder",
               //   company: "Myere",
@@ -112,6 +106,12 @@ const features = [
                 role: "Software Engineer",
                 company: "CheddrSuite",
                 period: "Dec '22 - Present",
+                color: "bg-green-400",
+              },
+              {
+                role: "Cofounder",
+                company: "Juke",
+                period: "Jul '24 - Feb '25",
                 color: "bg-green-400",
               },
               {
