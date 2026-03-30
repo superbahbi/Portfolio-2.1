@@ -105,8 +105,8 @@ const features = [
               {
                 role: "Software Engineer",
                 company: "CheddrSuite",
-                period: "Dec '22 - Present",
-                color: "bg-green-400",
+                period: "Dec '22 - Apr '25",
+                color: "bg-red-400",
               },
               {
                 role: "Cofounder",
