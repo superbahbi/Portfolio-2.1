@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "startUrl": "https://www.instagram.com/direct/inbox/",
+  "allowedPaths": [
+    "/direct/",
+    "/accounts/",
+    "/challenge/",
+    "/api/"
+  ],
+  "inPlacePaths": [
+    "/reel/",
+    "/p/"
+  ],
+  "inPlaceFrom": "/direct/",
+  "blockedPaths": [
+    "/",
+    "/explore/",
+    "/reels/",
+    "/reels",
+    "/explore"
+  ],
+  "hiddenSelectors": [
+    "a[href=\"/\"]",
+    "a[href=\"/explore/\"]",
+    "a[href=\"/reels/\"]",
+    "a[href=\"/reels\"]",
+    "a[href=\"/explore\"]",
+    "a[aria-label=\"Home\"]",
+    "a[aria-label=\"Explore\"]",
+    "a[aria-label=\"Reels\"]",
+    "[role=\"link\"][href=\"/reels/\"]",
+    "a[href*=\"/reels/\"]",
+    "[aria-label=\"Notes\"]",
+    "[aria-label=\"Notes tray\"]",
+    "div[role=\"button\"][aria-label=\"Notes\"]",
+    "a[aria-label=\"Back\"]",
+    "div[role=\"button\"][aria-label=\"Back\"]",
+    "[aria-label=\"Back\"]"
+  ],
+  "allowedHosts": [
+    "www.instagram.com",
+    "instagram.com",
+    "i.instagram.com",
+    "static.cdninstagram.com",
+    "scontent.cdninstagram.com",
+    "graph.instagram.com"
+  ],
+  "hiddenText": [],
+  "hideAvatarRows": true
+}
