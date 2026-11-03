@@ -253,7 +253,7 @@ const projects: Project[] = [
     ],
     description:
       "This is my personal portfolio, built using the Next.js framework with TypeScript and styled with Tailwind CSS. Explore my projects, skills, and professional journey.",
-    website_link: "https://robertkugler.dev/",
+    website_link: "https://bahbi.net/",
     website_label: "Demo",
     code: "https://github.com/superbahbi/portfolio-2.1",
   },
