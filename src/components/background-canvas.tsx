@@ -51,7 +51,7 @@ const Stars = (props: any) => {
 const BackgroundCanvas = ({ className }: { className?: string }) => {
   return (
     <Canvas
-      className={`fixed inset-0 z-0 ${className}`}
+      className={`animated-fade-in fixed inset-0 z-0 ${className}`}
       camera={{ position: [0, 0, 0] }}
     >
       <Stars />
