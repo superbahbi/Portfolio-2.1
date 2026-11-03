@@ -125,60 +125,13 @@ const features = [
     ),
   },
   {
-    Icon: LucideIcons.BookOpen,
-    name: "Currently Reading",
-    description: "Books I am currently reading.",
-    className: "col-span-3 md:col-span-1 pb-2",
-    background: (
-      <div className="px-4 py-4 sm:px-6">
-        <div className="flex flex-col">
-          <h3 className="text-left text-lg tracking-tighter">Meditation</h3>
-          <span className="text-left text-xs tracking-tighter">
-            Marcus Aurelius
-          </span>
-        </div>
-        <div className="relative py-2">
-          <div className="absolute bottom-3 right-1 z-10">
-            <Suspense
-              fallback={
-                <Skeleton className="h-8 w-16 flex-col items-center px-6" />
-              }
-            >
-              <Like id="book:meditation-by-ma" />
-            </Suspense>
-          </div>
-          <a href="https://www.goodreads.com/book/show/30659" target="_blank">
-            <img
-              src="/meditation_by-ma.jpg"
-              alt="Meditation by Marcus Aurelius"
-              className="rounded-md grayscale [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)]"
-            />
-          </a>
-        </div>
-      </div>
-    ),
-  },
-  {
-    Icon: LucideIcons.ProjectorIcon,
-    name: "Projects",
-    description: "Projects I have worked on.",
-    className: "col-span-3 md:col-span-2 pb-2",
-    background: (
-      <div className="px-4 py-4 sm:px-6">
-        <div className="flex items-center justify-center">
-          <CardCarousel projects={projects} />
-        </div>
-      </div>
-    ),
-  },
-  {
     Icon: LucideIcons.Menu,
     name: "Tech Stack",
     description: "Current stack I am working with.",
-    className: "col-span-3 lg:col-span-2 pb-2",
+    className: "col-span-3 lg:col-span-1 pb-2",
     background: (
       <div className="px-4 py-4 sm:px-6">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-3 lg:grid-cols-1">
           <TechStackItem
             Icon={Icons.SiNextdotjs}
             name="Next.js"
@@ -230,12 +183,58 @@ const features = [
             name="Socket.io"
             description="Realtime"
           />
-
           <TechStackItem
             Icon={LucideIcons.MoreHorizontal}
             name=""
             description="and many more..."
           />
+        </div>
+      </div>
+    ),
+  },
+  {
+    Icon: LucideIcons.BookOpen,
+    name: "Currently Reading",
+    description: "Books I am currently reading.",
+    className: "col-span-3 md:col-span-1 pb-2",
+    background: (
+      <div className="px-4 py-4 sm:px-6">
+        <div className="flex flex-col">
+          <h3 className="text-left text-lg tracking-tighter">Meditation</h3>
+          <span className="text-left text-xs tracking-tighter">
+            Marcus Aurelius
+          </span>
+        </div>
+        <div className="relative py-2">
+          <div className="absolute bottom-3 right-1 z-10">
+            <Suspense
+              fallback={
+                <Skeleton className="h-8 w-16 flex-col items-center px-6" />
+              }
+            >
+              <Like id="book:meditation-by-ma" />
+            </Suspense>
+          </div>
+          <a href="https://www.goodreads.com/book/show/30659" target="_blank">
+            <img
+              src="/meditation_by-ma.jpg"
+              alt="Meditation by Marcus Aurelius"
+              className="rounded-md grayscale [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)]"
+            />
+          </a>
+        </div>
+      </div>
+    ),
+  },
+  {
+    Icon: LucideIcons.ProjectorIcon,
+    name: "Projects",
+    description: "Projects I have worked on.",
+    className: "col-span-3 md:col-span-2 pb-2",
+    background: (
+      <div className="px-4 py-4 sm:px-6">
+        <div className="flex items-center justify-center">
+          <CardCarousel projects={projects} />
         </div>
       </div>
     ),
