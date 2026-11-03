@@ -9,7 +9,7 @@ export const experience: Experience[] = [
   {
     role: "Cellar Hand",
     place: "Whitehaven Wine Co.",
-    period: "2026",
+    period: "2026 · 3 months",
     kind: "wine",
   },
   {
