@@ -15,9 +15,10 @@ const features = [
     Icon: LucideIcons.Terminal,
     name: "Bobby Lee",
     description: `Full-time wanderer · AI-native developer.`,
+    descriptionClassName: "text-xs tracking-tight",
     className: "col-span-3 md:col-span-1 flex justify-between",
     background: (
-      <div className="rounded-md transition-all duration-300 ease-out [mask-image:linear-gradient(to_bottom,transparent_1%,#000_100%)] group-hover:scale-105">
+      <div className="mt-3 rounded-md transition-all duration-300 ease-out [mask-image:linear-gradient(to_bottom,transparent_1%,#000_100%)] group-hover:scale-105">
         <div className="relative aspect-[5/4] w-full overflow-hidden rounded-md">
           <Image
             src="/me.jpg"

@@ -24,6 +24,7 @@ const BentoCard = ({
   background,
   Icon,
   description,
+  descriptionClassName,
   href,
   cta,
   right,
@@ -33,6 +34,7 @@ const BentoCard = ({
   background?: ReactNode;
   Icon?: any;
   description?: string;
+  descriptionClassName?: string;
   href?: string;
   cta?: string;
   right?: ReactNode;
@@ -71,7 +73,10 @@ const BentoCard = ({
             <TextEncrypted
               interval={100}
               text={description}
-              className="text-sm text-muted-foreground"
+              className={cn(
+                "text-sm text-muted-foreground",
+                descriptionClassName,
+              )}
             />
           </div>
         )}
