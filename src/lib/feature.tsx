@@ -55,7 +55,7 @@ const features = [
     Icon: LucideIcons.FileTextIcon,
     name: "About Me",
     description: "Learn more about me.",
-    className: "col-span-3 md:col-span-2 pb-2",
+    className: "col-span-3 md:col-span-2 pb-2 justify-start",
     background: (
       <div className="flex flex-col gap-2 px-4 py-4 sm:px-6">
         <p className="text-justify tracking-tighter  sm:text-left">
