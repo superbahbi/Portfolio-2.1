@@ -72,14 +72,14 @@ const features = [
     background: (
       <div className="px-4 py-4 sm:px-6">
         <div className="w-full text-sm tracking-tighter">
-          <div className="flex flex-col gap-2 sm:gap-1">
+          <div className="flex flex-col gap-2 sm:gap-2.5">
             {[
-               {
-                 role: "Cellar Hand",
-                 company: "Whitehaven Wine Co.",
-                 period: "Feb '26 - Apr '26",
-                 color: "bg-red-400",
-               },
+              {
+                role: "Cellar Hand",
+                company: "Whitehaven Wine Co.",
+                period: "Feb '26 - Apr '26",
+                color: "bg-red-400",
+              },
               {
                 role: "Software Engineer",
                 company: "CheddrSuite",
@@ -131,7 +131,7 @@ const features = [
     className: "col-span-3 lg:col-span-1 pb-2",
     background: (
       <div className="px-4 py-4 sm:px-6">
-        <div className="grid grid-cols-1 gap-2 md:grid-cols-3 lg:grid-cols-1">
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-3 lg:grid-cols-2 lg:gap-1.5">
           <TechStackItem
             Icon={Icons.SiNextdotjs}
             name="Next.js"
@@ -187,6 +187,7 @@ const features = [
             Icon={LucideIcons.MoreHorizontal}
             name=""
             description="and many more..."
+            className="lg:col-span-2"
           />
         </div>
       </div>

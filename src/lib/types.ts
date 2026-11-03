@@ -18,6 +18,7 @@ export interface TechStackItemProps {
   Icon: React.ElementType;
   name: string;
   description: string;
+  className?: string;
 }
 
 export interface Project {
