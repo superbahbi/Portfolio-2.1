@@ -2,7 +2,6 @@ import { CardCarousel } from "@/components/card-carousel";
 import { JobItem } from "@/components/job-item";
 import { Like } from "@/components/like-book";
 import { ModeToggle } from "@/components/mode-toggle";
-import { NowPlaying } from "@/components/now-playing";
 import { TechStackItem } from "@/components/tech-stack-item";
 import { Skeleton } from "@/components/ui/skeleton";
 import { projects } from "@/lib/project";
@@ -238,19 +237,6 @@ const features = [
             description="and many more..."
           />
         </div>
-      </div>
-    ),
-  },
-  {
-    Icon: LucideIcons.Music,
-    name: "Now Playing",
-    description: "What I am currently listening to.",
-    className: "col-span-3 lg:col-span-1 pb-2",
-    background: (
-      <div className="px-4 py-4 sm:px-6">
-        <Suspense fallback={<div>Loading...</div>}>
-          <NowPlaying />
-        </Suspense>
       </div>
     ),
   },
