@@ -2,16 +2,17 @@
 
 import { createSeededRandom } from "@/lib/seeded-random";
 import { useFrame, useThree } from "@react-three/fiber";
-import { useTheme } from "next-themes";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
+import { readInitialDark, useBackgroundTheme } from "./use-background-theme";
 
 /**
  * Star field rendered as a single GPU point cloud.
  *
  * Positions, sizes and twinkle phases are baked into buffer attributes, so the
  * whole sky is one draw call. A tiny custom shader keeps the stars round and
- * gives each one its own size and twinkle instead of one flat square size.
+ * gives each one its own size, twinkle and occasional four-point sparkle
+ * instead of one flat square size.
  */
 
 const STAR_COUNT = 9000;
@@ -28,17 +29,27 @@ const VERTEX_SHADER = /* glsl */ `
 
   attribute float aSize;
   attribute float aPhase;
+  attribute float aSparkle;
 
   varying float vTwinkle;
+  varying float vSparkle;
 
   void main() {
     vec4 viewPosition = modelViewMatrix * vec4(position, 1.0);
     gl_Position = projectionMatrix * viewPosition;
 
     float depth = max(-viewPosition.z, 0.0001);
-    gl_PointSize = clamp(aSize * uSize * uPixelRatio / depth, 0.5, 14.0);
 
+    // Most stars just shimmer. A subset glints with a short, bright pulse.
+    float sparkleWave = max(
+      0.0,
+      sin(uTime * (0.8 + aSparkle * 1.4) + aPhase * 2.7)
+    );
+    vSparkle = pow(sparkleWave, 14.0) * aSparkle;
     vTwinkle = 0.72 + 0.28 * sin(uTime * 0.8 + aPhase);
+
+    float baseSize = aSize * uSize * uPixelRatio / depth;
+    gl_PointSize = clamp(baseSize * (1.0 + vSparkle * 4.0), 0.5, 28.0);
   }
 `;
 
@@ -47,16 +58,29 @@ const FRAGMENT_SHADER = /* glsl */ `
   uniform float uOpacity;
 
   varying float vTwinkle;
+  varying float vSparkle;
 
   void main() {
-    float distanceToCenter = length(gl_PointCoord - 0.5);
+    vec2 point = gl_PointCoord - 0.5;
+    float distanceToCenter = length(point);
 
     if (distanceToCenter > 0.5) {
       discard;
     }
 
-    float alpha = pow(1.0 - distanceToCenter * 2.0, 2.0);
-    gl_FragColor = vec4(uColor, alpha * uOpacity * vTwinkle);
+    float core = pow(1.0 - distanceToCenter * 2.0, 2.0);
+
+    // A thin horizontal and vertical streak, visible only while glinting.
+    float spikeHorizontal = max(0.0, 1.0 - abs(point.y) * 14.0)
+      * max(0.0, 1.0 - abs(point.x) * 2.0);
+    float spikeVertical = max(0.0, 1.0 - abs(point.x) * 14.0)
+      * max(0.0, 1.0 - abs(point.y) * 2.0);
+    float spikes = (spikeHorizontal + spikeVertical) * vSparkle;
+
+    float brightness = min(vTwinkle + vSparkle, 1.0);
+    float alpha = core * brightness * uOpacity + spikes * uOpacity * 0.85;
+
+    gl_FragColor = vec4(uColor, min(alpha, 1.0));
   }
 `;
 
@@ -66,6 +90,7 @@ const createStarGeometry = () => {
   const positions = new Float32Array(STAR_COUNT * 3);
   const sizes = new Float32Array(STAR_COUNT);
   const phases = new Float32Array(STAR_COUNT);
+  const sparkles = new Float32Array(STAR_COUNT);
 
   for (let index = 0; index < STAR_COUNT; index += 1) {
     // Uniform random direction on a sphere, then push it out to a shell so
@@ -82,29 +107,27 @@ const createStarGeometry = () => {
     // Most stars are faint pinpricks; a few are noticeably brighter.
     sizes[index] = 0.35 + Math.pow(random(), 2.4) * 1.65;
     phases[index] = random() * Math.PI * 2;
+
+    // Roughly one in six stars is a strong sparkler; the rest barely glint.
+    const sparkleRoll = random();
+    sparkles[index] =
+      sparkleRoll < 0.16 ? 0.55 + random() * 0.45 : sparkleRoll * 0.12;
   }
 
   const geometry = new THREE.BufferGeometry();
   geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
   geometry.setAttribute("aSize", new THREE.BufferAttribute(sizes, 1));
   geometry.setAttribute("aPhase", new THREE.BufferAttribute(phases, 1));
+  geometry.setAttribute("aSparkle", new THREE.BufferAttribute(sparkles, 1));
 
   return geometry;
 };
-
-const readInitialTheme = () =>
-  typeof document === "undefined"
-    ? true
-    : document.documentElement.classList.contains("dark");
 
 interface StarFieldProps {
   reducedMotion: boolean;
 }
 
 const StarField = ({ reducedMotion }: StarFieldProps) => {
-  const { resolvedTheme } = useTheme();
-  const [isDark, setIsDark] = useState(readInitialTheme);
-
   const parallaxGroup = useRef<THREE.Group>(null);
   const spinGroup = useRef<THREE.Group>(null);
   const pointer = useRef({ x: 0, y: 0 });
@@ -116,7 +139,7 @@ const StarField = ({ reducedMotion }: StarFieldProps) => {
   useEffect(() => () => geometry.dispose(), [geometry]);
 
   const uniforms = useMemo(() => {
-    const initialIsDark = readInitialTheme();
+    const initialIsDark = readInitialDark();
     const starTheme: { color: string; opacity: number } = initialIsDark
       ? DARK_STARS
       : LIGHT_STARS;
@@ -134,17 +157,10 @@ const StarField = ({ reducedMotion }: StarFieldProps) => {
     uniforms.uPixelRatio.value = dpr;
   }, [dpr, uniforms]);
 
-  useEffect(() => {
-    if (resolvedTheme === "dark" || resolvedTheme === "light") {
-      setIsDark(resolvedTheme === "dark");
-    }
-  }, [resolvedTheme]);
-
-  const targetColor = useMemo(
-    () => new THREE.Color((isDark ? DARK_STARS : LIGHT_STARS).color),
-    [isDark],
+  const { color: targetColor, opacity: targetOpacity } = useBackgroundTheme(
+    DARK_STARS,
+    LIGHT_STARS,
   );
-  const targetOpacity = (isDark ? DARK_STARS : LIGHT_STARS).opacity;
 
   useEffect(() => {
     if (!reducedMotion) return;

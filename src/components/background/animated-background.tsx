@@ -3,12 +3,12 @@
 import { cn } from "@/lib/utils";
 import { Canvas } from "@react-three/fiber";
 import { useEffect, useState } from "react";
-import { Meteors } from "./meteors";
+import { MeteorField } from "./meteor-field";
 import { StarField } from "./star-field";
 
 /**
  * The site's decorative animated background: a drifting, twinkling star field
- * with a CSS meteor shower on top.
+ * with a curved meteor shower, both rendered in the same WebGL scene.
  *
  * Rendering stops entirely while the tab is hidden, and the whole scene is
  * frozen for visitors who prefer reduced motion. The canvas is capped at 1.5x
@@ -85,9 +85,8 @@ const AnimatedBackground = ({
         fallback={null}
       >
         <StarField reducedMotion={reducedMotion} />
+        {!reducedMotion && <MeteorField count={meteorCount} />}
       </Canvas>
-
-      <Meteors count={meteorCount} reducedMotion={reducedMotion} />
     </div>
   );
 };
