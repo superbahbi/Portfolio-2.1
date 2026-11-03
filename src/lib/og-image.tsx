@@ -54,10 +54,10 @@ export function renderOgImage() {
               Bobby Lee
             </div>
             <div style={{ fontSize: 36, color: "#d4d4d8" }}>
-              Full Stack Software Engineer
+              Full-time wanderer
             </div>
             <div style={{ fontSize: 28, color: "#71717a" }}>
-              San Luis Obispo, CA
+              AI-native developer
             </div>
           </div>
 

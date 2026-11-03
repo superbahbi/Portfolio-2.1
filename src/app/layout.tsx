@@ -11,9 +11,9 @@ import { Metadata } from "next/types";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Bobby Lee | Full Stack Software Engineer",
+  title: "Bobby Lee",
   description:
-    "Bobby Lee is a software engineer based in San Luis Obispo, CA. He specializes in building web applications with React, TypeScript, and Node.js.",
+    "Bobby Lee is a full-time wanderer and AI-native developer. He builds small useful things with TypeScript, React, and Expo.",
 };
 export default function RootLayout({
   children,
