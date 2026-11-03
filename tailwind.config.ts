@@ -56,6 +56,19 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      keyframes: {
+        meteor: {
+          "0%": { transform: "rotate(290deg) translateX(0)", opacity: 1 },
+          "70%": { opacity: 1 },
+          "100%": {
+            transform: "rotate(290deg) translateX(-100vh)",
+            opacity: 0,
+          },
+        },
+      },
+      animation: {
+        meteor: "meteor 5s linear infinite",
+      },
     },
   },
   plugins: [],

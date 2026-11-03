@@ -1,3 +1,5 @@
+import { BackgroundCanvas } from "@/components/background-canvas";
+import { Meteors } from "@/components/meteor";
 import { ThemeProvider } from "@/components/theme-provider";
 import { site } from "@/lib/site";
 import { Analytics } from "@vercel/analytics/react";
@@ -52,7 +54,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <div className="relative min-h-screen">
+            <BackgroundCanvas />
+            <Meteors number={20} />
+            <div className="relative z-10">{children}</div>
+          </div>
         </ThemeProvider>
         <Analytics />
       </body>
