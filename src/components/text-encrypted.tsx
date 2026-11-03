@@ -44,14 +44,21 @@ const TextEncrypted = ({
         .join("")
       : "";
 
-  if (!isMounted) {
-    return <span> </span>;
-  }
-
   return (
-    <span className={cn(className)}>
-      {outputText}
-      {remainder}
+    <span className={cn("relative block", className)}>
+      {/* Invisible copy of the finished text holds the final line count, so the
+          scrambled characters can never reflow the card while they animate. */}
+      <span aria-hidden className="invisible">
+        {text}
+      </span>
+      <span className="absolute inset-0 overflow-hidden break-words">
+        {isMounted ? (
+          <>
+            {outputText}
+            {remainder}
+          </>
+        ) : null}
+      </span>
     </span>
   );
 };
