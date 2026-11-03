@@ -1,4 +1,3 @@
-import { ButtonLink } from "@/components/button-link";
 import { CardCarousel } from "@/components/card-carousel";
 import { JobItem } from "@/components/job-item";
 import { Like } from "@/components/like-book";
@@ -7,26 +6,10 @@ import { NowPlaying } from "@/components/now-playing";
 import { TechStackItem } from "@/components/tech-stack-item";
 import { Skeleton } from "@/components/ui/skeleton";
 import { projects } from "@/lib/project";
-import { ButtonLinkProps } from "@/lib/types";
 import * as Icons from "@icons-pack/react-simple-icons";
 import * as LucideIcons from "lucide-react";
 import Image from "next/image";
 import { Suspense } from "react";
-
-const buttonData: ButtonLinkProps[] = [
-  { href: "https://dub.sh/rkrs", icon: LucideIcons.File, label: "Resume" },
-  {
-    href: "https://dub.sh/rklinkedin",
-    icon: Icons.SiLinkedin,
-    label: "LinkedIn",
-  },
-  { href: "https://git.new/rkgit", icon: Icons.SiGithub, label: "Github" },
-  {
-    href: "https://dub.sh/rkcal",
-    icon: LucideIcons.Calendar,
-    label: "Book a Meeting",
-  },
-];
 
 const features = [
   {
@@ -96,7 +79,7 @@ const features = [
                  role: "Cellar Hand",
                  company: "Whitehaven Wine Co.",
                  period: "Feb '26 - Apr '26",
-                 color: "bg-green-400",
+                 color: "bg-red-400",
                },
               {
                 role: "Software Engineer",
@@ -138,22 +121,6 @@ const features = [
               <JobItem key={index} job={job} />
             ))}
           </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    Icon: LucideIcons.Link,
-    name: "Link",
-    description: "Quick access to my resume, email, and GitHub profiles.",
-    className: "col-span-3 lg:col-span-1 pb-2",
-
-    background: (
-      <div className="px-4 py-4 sm:px-6">
-        <div className="flex flex-col gap-2">
-          {buttonData.map((button) => (
-            <ButtonLink key={button.label} {...button} />
-          ))}
         </div>
       </div>
     ),
