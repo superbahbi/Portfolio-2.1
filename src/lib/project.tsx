@@ -3,6 +3,23 @@ import * as Icons from "@icons-pack/react-simple-icons";
 
 const projects: Project[] = [
   {
+    id: "goyo",
+    title: "Goyo",
+    tags: ["web app"],
+    technology: [
+      { name: "React", icon: <Icons.SiReact size={16} /> },
+      { name: "Typescript", icon: <Icons.SiTypescript size={16} /> },
+      { name: "Vite", icon: <Icons.SiVite size={16} /> },
+      { name: "Tailwindcss", icon: <Icons.SiTailwindcss size={16} /> },
+      { name: "Vercel", icon: <Icons.SiVercel size={16} /> },
+    ],
+    description:
+      "Goyo is audio-first Korean vocabulary practice with spaced repetition. It ships 640 curated cards, seven practice modes, and twelve TOPIK I grammar lessons, works offline as a PWA, and keeps every bit of progress on your device with JSON export/import. No accounts, no tracking.",
+    website_link: "https://goyo-korean-app.vercel.app",
+    website_label: "Website",
+    code: "https://github.com/superbahbi/goyo-korean-app",
+  },
+  {
     id: "mugai",
     title: "Mugai",
     tags: ["mobile app"],
