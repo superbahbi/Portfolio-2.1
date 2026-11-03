@@ -1,23 +1,27 @@
 import { experience } from "@/lib/experience";
+import { cn } from "@/lib/utils";
 
 export function ExperienceList() {
   return (
-    <ul className="space-y-5">
+    <ul className="grid gap-x-8 gap-y-3 sm:grid-cols-2">
       {experience.map((job) => (
         <li
           key={`${job.role}-${job.place}`}
-          className="grid gap-1 sm:grid-cols-[1fr_auto] sm:items-baseline sm:gap-6"
+          className="flex items-baseline justify-between gap-4"
         >
-          <div className="flex flex-wrap items-baseline gap-x-2">
+          <div className="flex items-baseline gap-2">
+            <span
+              className={cn(
+                "size-1.5 shrink-0 self-center rounded-full",
+                job.kind === "wine" ? "bg-amber-500" : "bg-emerald-500",
+              )}
+            />
             <span className="text-sm">{job.role}</span>
-            <span className="text-sm text-muted-foreground">
+            <span className="text-xs text-muted-foreground">
               at {job.place}
             </span>
-            <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground/70">
-              {job.kind}
-            </span>
           </div>
-          <span className="text-xs tabular-nums text-muted-foreground">
+          <span className="shrink-0 text-[11px] tabular-nums text-muted-foreground">
             {job.period}
           </span>
         </li>

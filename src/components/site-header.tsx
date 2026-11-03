@@ -10,21 +10,10 @@ export function SiteHeader() {
       >
         Bobby Lee
       </Link>
-      <nav className="flex items-center gap-5 text-sm text-muted-foreground">
-        <Link className="transition-colors hover:text-foreground" href="#about">
-          About
-        </Link>
-        <Link className="transition-colors hover:text-foreground" href="#work">
-          Work
-        </Link>
-        <Link
-          className="transition-colors hover:text-foreground"
-          href="#contact"
-        >
-          Contact
-        </Link>
+      <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+        <span className="hidden sm:inline">Wanderer</span>
         <ModeToggle />
-      </nav>
+      </div>
     </header>
   );
 }
