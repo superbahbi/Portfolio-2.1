@@ -70,9 +70,9 @@ const features = [
     description: "I have experience in a variety of fields.",
     className: "col-span-3 lg:col-span-2 pb-2",
     background: (
-      <div className="px-4 py-4 sm:px-6">
-        <div className="w-full text-sm tracking-tighter">
-          <div className="flex flex-col gap-2 sm:gap-2.5">
+      <div className="flex h-full flex-col px-4 py-4 sm:px-6">
+        <div className="flex w-full flex-1 flex-col text-sm tracking-tighter">
+          <div className="flex flex-1 flex-col justify-between gap-2 sm:gap-2.5">
             {[
               {
                 role: "Cellar Hand",
@@ -127,11 +127,32 @@ const features = [
   {
     Icon: LucideIcons.Menu,
     name: "Tech Stack",
-    description: "Current stack I am working with.",
+    description: "AI-native stack I am working with.",
     className: "col-span-3 lg:col-span-1 pb-2",
     background: (
       <div className="px-4 py-4 sm:px-6">
         <div className="grid grid-cols-1 gap-2 md:grid-cols-3 lg:grid-cols-2 lg:gap-1.5">
+          <TechStackItem
+            Icon={Icons.SiAnthropic}
+            name="Claude"
+            description="AI"
+          />
+          <TechStackItem Icon={Icons.SiOpenai} name="OpenAI" description="AI" />
+          <TechStackItem
+            Icon={Icons.SiGooglegemini}
+            name="Gemini"
+            description="AI"
+          />
+          <TechStackItem
+            Icon={Icons.SiOllama}
+            name="Ollama"
+            description="Local AI"
+          />
+          <TechStackItem
+            Icon={Icons.SiVercel}
+            name="AI SDK"
+            description="Vercel"
+          />
           <TechStackItem
             Icon={Icons.SiNextdotjs}
             name="Next.js"
@@ -182,12 +203,6 @@ const features = [
             Icon={Icons.SiSocketdotio}
             name="Socket.io"
             description="Realtime"
-          />
-          <TechStackItem
-            Icon={LucideIcons.MoreHorizontal}
-            name=""
-            description="and many more..."
-            className="lg:col-span-2"
           />
         </div>
       </div>

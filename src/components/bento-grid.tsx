@@ -85,7 +85,7 @@ const BentoCard = ({
         </Button>
       )}
     </div>
-    <div className="">{background}</div>
+    <div className="flex-1">{background}</div>
     <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
   </div>
 );

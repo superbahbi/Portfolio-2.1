@@ -1,12 +1,7 @@
 import { TechStackItemProps } from "@/lib/types";
 
-const TechStackItem = ({
-  Icon,
-  name,
-  description,
-  className,
-}: TechStackItemProps) => (
-  <div className={`flex items-center gap-2 ${className ?? ""}`}>
+const TechStackItem = ({ Icon, name, description }: TechStackItemProps) => (
+  <div className="flex items-center gap-2">
     <div className="flex rounded-md border border-dashed border-border bg-transparent p-3 lg:p-2">
       <Icon className="size-5 lg:size-4" />
     </div>
