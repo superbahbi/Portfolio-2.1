@@ -35,14 +35,16 @@ const features = [
     description: `Full-time wanderer · AI-native developer.`,
     className: "col-span-3 md:col-span-1 flex justify-between",
     background: (
-      <div className=" rounded-md transition-all duration-300 ease-out [mask-image:linear-gradient(to_bottom,transparent_1%,#000_100%)] group-hover:scale-105">
-        <Image
-          src="/me.jpg"
-          alt="Bobby Lee"
-          width={614}
-          height={819}
-          className="rounded-md object-cover"
-        />
+      <div className="rounded-md transition-all duration-300 ease-out [mask-image:linear-gradient(to_bottom,transparent_1%,#000_100%)] group-hover:scale-105">
+        <div className="relative aspect-[5/4] w-full overflow-hidden rounded-md">
+          <Image
+            src="/me.jpg"
+            alt="Bobby Lee"
+            fill
+            sizes="(min-width: 768px) 33vw, 100vw"
+            className="object-cover"
+          />
+        </div>
       </div>
     ),
     right: (
