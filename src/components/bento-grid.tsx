@@ -62,12 +62,12 @@ const BentoCard = ({
       </div>
       <div className="flex flex-col gap-2">
         {name && (
-          <div className="h-6">
+          <div className="min-h-6">
             <TextEncrypted interval={50} text={name} />
           </div>
         )}
         {description && (
-          <div className="h-10">
+          <div className="min-h-10">
             <TextEncrypted
               interval={100}
               text={description}
