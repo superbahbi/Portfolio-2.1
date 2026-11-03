@@ -31,14 +31,14 @@ const buttonData: ButtonLinkProps[] = [
 const features = [
   {
     Icon: LucideIcons.Terminal,
-    name: "Robert (Bobby Lee) Kugler",
+    name: "Bobby Lee",
     description: `Full Stack Software Engineer, San Luis Obispo, CA.`,
     className: "col-span-3 md:col-span-1 flex justify-between",
     background: (
       <div className=" rounded-md transition-all duration-300 ease-out [mask-image:linear-gradient(to_bottom,transparent_1%,#000_100%)] group-hover:scale-105">
         <Image
           src="/me.jpg"
-          alt="Robert Kugler"
+          alt="Bobby Lee"
           width={614}
           height={819}
           className="rounded-md object-cover"
@@ -59,7 +59,7 @@ const features = [
     background: (
       <div className="flex flex-col gap-2 px-4 py-4 sm:px-6">
         <p className="text-justify tracking-tighter  sm:text-left">
-          I am Robert Kugler, a full-stack software engineer based in San Luis
+          I am Bobby Lee, a full-stack software engineer based in San Luis
           Obispo, California. I specialize in building and enhancing
           applications using Typescript, React, and React Native. My dedication
           to continuous learning and improvement is evident in my active GitHub
