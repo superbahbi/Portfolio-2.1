@@ -59,24 +59,18 @@ const features = [
     background: (
       <div className="flex flex-col gap-2 px-4 py-4 sm:px-6">
         <p className="text-justify tracking-tighter  sm:text-left">
-          I am Bobby Lee, a full-stack software engineer based in San Luis
-          Obispo, California. I specialize in building and enhancing
-          applications using Typescript, React, and React Native. My dedication
-          to continuous learning and improvement is evident in my active GitHub
-          repositories, where I consistently update my latest projects.
+          I’m Bobby Lee, a full-time wanderer. I don’t know where I’ll be next
+          month, and I’m learning to like that.
         </p>
         <p className="text-justify tracking-tighter sm:text-left">
-          Currently, I&apos;m channeling my expertise into Mugai, an AI-powered
-          meditation app designed to provide personalized mindfulness
-          experiences. I&apos;m passionate about leveraging technology to
-          empower individuals to cultivate mindfulness and improve their overall
-          well-being through tailored meditation journeys.
+          I spent over a decade making wine and wrote software on the side for
+          much of it. Now I build full time again as an AI-native developer. I
+          work with Claude and other models every day, mostly in TypeScript,
+          React, and Expo, and I’d rather ship small useful things than big
+          clever ones.
         </p>
         <p className="text-justify tracking-tighter sm:text-left">
-          As a dedicated software engineering professional, I strive to leverage
-          my skills to provide innovative and effective solutions. For
-          questions, collaborations, or more information about my projects and
-          professional journey, please feel free to reach out.
+          Have a look around, and say hi if something catches your eye.
         </p>
       </div>
     ),
