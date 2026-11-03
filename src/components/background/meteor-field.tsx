@@ -157,9 +157,11 @@ const createMeteorGeometry = ({
   }
 
   const geometry = new THREE.BufferGeometry();
-  const startAttribute = new THREE.BufferAttribute(starts, 3);
-  geometry.setAttribute("position", startAttribute);
-  geometry.setAttribute("aStart", startAttribute);
+  geometry.setAttribute(
+    "position",
+    new THREE.BufferAttribute(starts.slice(), 3),
+  );
+  geometry.setAttribute("aStart", new THREE.BufferAttribute(starts, 3));
   geometry.setAttribute("aControl", new THREE.BufferAttribute(controls, 3));
   geometry.setAttribute("aEnd", new THREE.BufferAttribute(ends, 3));
   geometry.setAttribute("aOffset", new THREE.BufferAttribute(offsets, 1));
@@ -174,12 +176,17 @@ const createMeteorGeometry = ({
 
 interface MeteorFieldProps {
   count?: number;
+  reducedMotion?: boolean;
 }
 
-const MeteorField = ({ count = METEOR_COUNT }: MeteorFieldProps) => {
+const MeteorField = ({
+  count = METEOR_COUNT,
+  reducedMotion = false,
+}: MeteorFieldProps) => {
   const size = useThree((state) => state.size);
   const camera = useThree((state) => state.camera);
   const dpr = useThree((state) => state.viewport.dpr);
+  const invalidate = useThree((state) => state.invalidate);
 
   const { color: targetColor, opacity: targetOpacity } = useBackgroundTheme(
     DARK_METEORS,
@@ -222,7 +229,19 @@ const MeteorField = ({ count = METEOR_COUNT }: MeteorFieldProps) => {
     uniforms.uPixelRatio.value = dpr;
   }, [dpr, uniforms]);
 
+  // With reduced motion the canvas only renders on demand, so snap the theme
+  // colors in and ask for a single frame instead of waiting for the loop.
+  useEffect(() => {
+    if (!reducedMotion) return;
+
+    uniforms.uColor.value.copy(targetColor);
+    uniforms.uOpacity.value = targetOpacity;
+    invalidate();
+  }, [invalidate, reducedMotion, targetColor, targetOpacity, uniforms]);
+
   useFrame((_, delta) => {
+    if (reducedMotion) return;
+
     const step = Math.min(delta, 0.05);
 
     uniforms.uTime.value += step;

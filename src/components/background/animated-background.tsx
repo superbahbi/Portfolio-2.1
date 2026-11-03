@@ -85,7 +85,7 @@ const AnimatedBackground = ({
         fallback={null}
       >
         <StarField reducedMotion={reducedMotion} />
-        {!reducedMotion && <MeteorField count={meteorCount} />}
+        <MeteorField count={meteorCount} reducedMotion={reducedMotion} />
       </Canvas>
     </div>
   );
