@@ -42,7 +42,7 @@ const features = [
             alt="Bobby Lee"
             fill
             sizes="(min-width: 768px) 33vw, 100vw"
-            className="object-cover"
+            className="object-cover object-bottom"
           />
         </div>
       </div>
@@ -95,7 +95,7 @@ const features = [
                {
                  role: "Cellar Hand",
                  company: "Whitehaven Wine Co.",
-                 period: "Feb '26 - Present",
+                 period: "Feb '26 - Apr '26",
                  color: "bg-green-400",
                },
               {
