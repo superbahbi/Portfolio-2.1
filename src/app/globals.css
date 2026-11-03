@@ -24,6 +24,7 @@
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
     --radius: 0.5rem;
+    --meteor: 0 0% 42%;
   }
 
   .dark {
@@ -46,9 +47,9 @@
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
+    --meteor: 0 0% 72%;
   }
 }
-
 
 @layer base {
   * {
@@ -59,17 +60,88 @@
   }
 }
 
+@layer components {
+  .background-fade-in {
+    animation: background-fade-in 1.2s ease-out both;
+  }
+
+  .meteor {
+    position: absolute;
+    top: var(--meteor-top, -10%);
+    left: var(--meteor-left, 50%);
+    width: 2px;
+    height: 2px;
+    border-radius: 9999px;
+    background-color: hsl(var(--meteor));
+    box-shadow: 0 0 6px 1px hsl(var(--meteor) / 0.35);
+    opacity: 0;
+    animation: meteor var(--meteor-duration, 6s) linear var(--meteor-delay, 0s)
+      infinite;
+    will-change: transform, opacity;
+  }
+
+  .meteor::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 72px;
+    height: 1px;
+    transform: translateY(-50%);
+    background-image: linear-gradient(
+      to right,
+      hsl(var(--meteor) / 0.6),
+      transparent
+    );
+  }
+}
+
+@keyframes background-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes meteor {
+  0% {
+    transform: rotate(215deg) translate3d(0, 0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--meteor-opacity, 0.7);
+  }
+  70% {
+    opacity: var(--meteor-opacity, 0.7);
+  }
+  100% {
+    transform: rotate(215deg) translate3d(-110vh, 0, 0);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .background-fade-in {
+    animation: none;
+  }
+
+  .meteor {
+    display: none;
+  }
+}
+
 @property --num {
-  syntax: '<integer>';
+  syntax: "<integer>";
   initial-value: 0;
   inherits: false;
 }
 @keyframes counter {
   from {
-      --num: 0;
+    --num: 0;
   }
   to {
     --num: var(--end-num, 0);
- 
   }
 }

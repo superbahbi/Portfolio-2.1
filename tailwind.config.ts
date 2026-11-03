@@ -65,19 +65,10 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
-        meteor: {
-          "0%": { transform: "rotate(290deg) translateX(0)", opacity: 1 },
-          "70%": { opacity: 1 },
-          "100%": {
-            transform: "rotate(290deg) translateX(-100vh)",
-            opacity: 0,
-          },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        meteor: "meteor 5s linear infinite",
       },
     },
   },

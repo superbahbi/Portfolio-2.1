@@ -1,5 +1,4 @@
-import { BackgroundCanvas } from "@/components/background-canvas";
-import { Meteors } from "@/components/meteor";
+import { AnimatedBackground } from "@/components/background";
 import { ProfileViews } from "@/components/profile-views";
 import { ReactQueryProvider } from "@/components/react-query-provider";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -35,8 +34,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <div className="relative h-screen w-screen overflow-hidden">
-              <BackgroundCanvas className="fixed left-0 top-0" />
-              <Meteors number={20} />
+              <AnimatedBackground />
               <div>
                 <div className="absolute right-4 top-4">
                   <ProfileViews />
