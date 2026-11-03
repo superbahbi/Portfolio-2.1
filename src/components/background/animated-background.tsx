@@ -10,26 +10,9 @@ import { StarField } from "./star-field";
  * The site's decorative animated background: a drifting, twinkling star field
  * with a curved meteor shower, both rendered in the same WebGL scene.
  *
- * Rendering stops entirely while the tab is hidden, and the whole scene is
- * frozen for visitors who prefer reduced motion. The canvas is capped at 1.5x
- * device pixels because soft stars gain nothing from a full retina buffer.
+ * Rendering stops entirely while the tab is hidden. The canvas is capped at
+ * 1.5x device pixels because soft stars gain nothing from a full retina buffer.
  */
-
-const usePrefersReducedMotion = () => {
-  const [reducedMotion, setReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setReducedMotion(mediaQuery.matches);
-
-    update();
-    mediaQuery.addEventListener("change", update);
-
-    return () => mediaQuery.removeEventListener("change", update);
-  }, []);
-
-  return reducedMotion;
-};
 
 const useDocumentVisible = () => {
   const [visible, setVisible] = useState(true);
@@ -55,14 +38,9 @@ const AnimatedBackground = ({
   className,
   meteorCount = 18,
 }: AnimatedBackgroundProps) => {
-  const reducedMotion = usePrefersReducedMotion();
   const documentVisible = useDocumentVisible();
 
-  const frameloop = !documentVisible
-    ? "never"
-    : reducedMotion
-      ? "demand"
-      : "always";
+  const frameloop = documentVisible ? "always" : "never";
 
   return (
     <div
@@ -84,8 +62,8 @@ const AnimatedBackground = ({
         }}
         fallback={null}
       >
-        <StarField reducedMotion={reducedMotion} />
-        <MeteorField count={meteorCount} reducedMotion={reducedMotion} />
+        <StarField />
+        <MeteorField count={meteorCount} />
       </Canvas>
     </div>
   );

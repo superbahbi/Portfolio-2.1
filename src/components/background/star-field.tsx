@@ -123,17 +123,12 @@ const createStarGeometry = () => {
   return geometry;
 };
 
-interface StarFieldProps {
-  reducedMotion: boolean;
-}
-
-const StarField = ({ reducedMotion }: StarFieldProps) => {
+const StarField = () => {
   const parallaxGroup = useRef<THREE.Group>(null);
   const spinGroup = useRef<THREE.Group>(null);
   const pointer = useRef({ x: 0, y: 0 });
 
   const dpr = useThree((state) => state.viewport.dpr);
-  const invalidate = useThree((state) => state.invalidate);
 
   const geometry = useMemo(() => createStarGeometry(), []);
   useEffect(() => () => geometry.dispose(), [geometry]);
@@ -163,15 +158,6 @@ const StarField = ({ reducedMotion }: StarFieldProps) => {
   );
 
   useEffect(() => {
-    if (!reducedMotion) return;
-
-    uniforms.uColor.value.copy(targetColor);
-    uniforms.uOpacity.value = targetOpacity;
-    invalidate();
-  }, [invalidate, reducedMotion, targetColor, targetOpacity, uniforms]);
-
-  useEffect(() => {
-    if (reducedMotion) return;
     if (!window.matchMedia("(pointer: fine)").matches) return;
 
     const handlePointerMove = (event: PointerEvent) => {
@@ -184,11 +170,9 @@ const StarField = ({ reducedMotion }: StarFieldProps) => {
     });
 
     return () => window.removeEventListener("pointermove", handlePointerMove);
-  }, [reducedMotion]);
+  }, []);
 
   useFrame((_, delta) => {
-    if (reducedMotion) return;
-
     // Clamp the step so a long-gap frame can't jump the sky.
     const step = Math.min(delta, 0.05);
 
