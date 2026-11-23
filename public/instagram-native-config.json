@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "webAppId": "936619743392459",
+  "asbdId": "359341",
+  "graphqlPath": "/api/graphql",
+  "inboxPagePath": "/direct/inbox/",
+  "docs": {
+    "inbox": {
+      "docId": "27262915580045003",
+      "friendlyName": "PolarisDirectInboxQuery"
+    },
+    "thread": {
+      "docId": "37117700834487428",
+      "friendlyName": "IGDThreadDetailQuery"
+    }
+  }
+}
