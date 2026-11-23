@@ -9,9 +9,17 @@
       "docId": "27262915580045003",
       "friendlyName": "PolarisDirectInboxQuery"
     },
+    "inboxPage": {
+      "docId": "27712934271665380",
+      "friendlyName": "IGDThreadListOffMsysPaginationQuery"
+    },
     "thread": {
       "docId": "37117700834487428",
       "friendlyName": "IGDThreadDetailQuery"
+    },
+    "threadPage": {
+      "docId": "27502152406082940",
+      "friendlyName": "IGDMessageListOffMsysQuery"
     }
   }
 }
